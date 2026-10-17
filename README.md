@@ -233,12 +233,12 @@ nav.botnav{position:fixed;bottom:0;left:0;right:0;z-index:30;background:rgba(255
 
 <script>
 var FIREBASE_CONFIG = {
-  apiKey:            "AIzaSyC4rtb4f8GP4i2WCyB8T_rqnmkUPNhKs_Q",
-  authDomain:        "farmer-73a44.firebaseapp.com",
-  projectId:         "farmer-73a44",
-  storageBucket:     "farmer-73a44.firebasestorage.app",
+  apiKey: "AIzaSyC4rtb4f8GP4i2WCyB8T_rqnmkUPNhKs_Q",
+  authDomain: "farmer-73a44.firebaseapp.com",
+  projectId: "farmer-73a44",
+  storageBucket: "farmer-73a44.firebasestorage.app",
   messagingSenderId: "919992492785",
-  appId:             "1:919992492785:web:49a831f26c58afcd95ff50",
+  appId: "1:919992492785:web:49a831f26c58afcd95ff50",
   databaseURL:       ""
 };
 var TELEGRAM_CONFIG = { botToken: "", chatId: "" };
