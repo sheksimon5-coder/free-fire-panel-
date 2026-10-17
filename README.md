@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html lang="bn">
 <head>
 <meta charset="UTF-8" />
@@ -35,15 +35,13 @@ header{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.85);backdro
 .logo-badge img{width:100%;height:100%;object-fit:cover;display:block}
 .logo-name{font-weight:800;font-size:16px;color:var(--text);letter-spacing:-0.3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .header-right{display:flex;align-items:center;gap:8px;flex-shrink:0}
-
-/* ====== STATUS BADGE ====== */
 .status-badge{display:flex;align-items:center;gap:5px;padding:6px 12px;border-radius:20px;font-size:11px;font-weight:700;border:1px solid transparent;transition:0.3s;white-space:nowrap}
 .status-badge.online{background:rgba(16,185,129,.1);color:var(--green);border-color:rgba(16,185,129,.2)}
 .status-badge.offline{background:rgba(239,68,68,.1);color:var(--red);border-color:rgba(239,68,68,.2)}
 .status-dot{width:6px;height:6px;border-radius:50%}
 .status-badge.online .status-dot{background:var(--green);animation:blink 1.5s infinite}
 .status-badge.offline .status-dot{background:var(--red)}
-
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
 .btn-login{padding:0 20px;height:36px;border-radius:20px;font-weight:700;font-size:13px;background:var(--text);color:#fff;box-shadow:0 4px 12px rgba(15,23,42,.2);transition:0.2s;white-space:nowrap}
 .btn-login:hover{transform:translateY(-1px)}
 .btn-avatar{width:36px;height:36px;min-width:36px;min-height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;font-size:13px;border:2px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.15)}
@@ -58,7 +56,7 @@ main{padding:16px 0 90px;min-height:calc(100vh - 60px);width:100%;overflow-x:hid
 .btn-blue{background:linear-gradient(135deg,var(--blue),#1d4ed8);color:#fff;font-weight:700}
 .btn-bkash{background:linear-gradient(135deg,var(--bkash),#be185d);color:#fff;font-weight:700}
 
-/* ====== AD SLIDER ====== */
+/* AD SLIDER */
 .ad-slider{margin-bottom:16px;border-radius:16px;overflow:hidden;position:relative;background:var(--card2);box-shadow:var(--shadow-md);aspect-ratio:16/7;width:100%;max-width:100%;max-height:340px;border:1px solid var(--border);touch-action:pan-y;cursor:grab;-webkit-user-select:none;user-select:none}
 .ad-slider.ad-dragging{cursor:grabbing}
 .ad-track{display:flex;height:100%;will-change:transform;transition:transform .65s cubic-bezier(.45,0,.2,1)}
@@ -90,6 +88,7 @@ main{padding:16px 0 90px;min-height:calc(100vh - 60px);width:100%;overflow-x:hid
 .notif-row{display:flex;align-items:center;gap:8px}.notif-text{overflow:hidden;flex:1;min-width:0}
 .marquee{white-space:nowrap;animation:marquee 22s linear infinite}
 @keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
 .tabs{display:flex;gap:8px;position:sticky;top:60px;z-index:20;padding:12px 0;margin:0 -14px 16px;padding-left:14px;padding-right:14px;background:rgba(244,246,249,.95);backdrop-filter:blur(12px);overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch;scrollbar-width:none}
 .tabs::-webkit-scrollbar{display:none}
 .tab{padding:8px 16px;border-radius:12px;font-size:13px;font-weight:700;background:#fff;border:1px solid var(--border);transition:.2s;color:var(--muted);flex-shrink:0;box-shadow:var(--shadow-sm)}
@@ -117,7 +116,6 @@ main{padding:16px 0 90px;min-height:calc(100vh - 60px);width:100%;overflow-x:hid
 .live-feed{margin-bottom:16px;overflow:hidden}
 .live-feed-head{display:flex;align-items:center;gap:8px;margin-bottom:10px;padding:0 4px}
 .live-dot{width:10px;height:10px;border-radius:50%;background:var(--green);animation:blink 1.5s infinite;box-shadow:0 0 8px rgba(16,185,129,.6)}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
 .live-feed-title{font-size:14px;font-weight:800;color:var(--text);display:flex;align-items:center;gap:6px}
 .live-list{display:flex;flex-direction:column;gap:8px}
 .live-item{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:14px;background:#fff;border:1px solid var(--border);box-shadow:var(--shadow-sm);animation:slideInRight .4s;font-size:13px;transition:0.2s;min-width:0}
@@ -216,49 +214,9 @@ nav.botnav{position:fixed;bottom:0;left:0;right:0;z-index:30;background:rgba(255
 .setup-btn{padding:16px;border-radius:12px;font-weight:700;font-size:14px;margin-bottom:10px;display:flex;align-items:center;justify-content:center;gap:10px;text-align:center;box-shadow:0 4px 10px rgba(0,0,0,.1);transition:0.2s;word-break:break-word}
 .setup-btn:hover{transform:translateY(-2px);box-shadow:0 6px 15px rgba(0,0,0,.15)}
 
-/* ====== MOVABLE WHATSAPP BUTTON ====== */
-.whatsapp-fab{
-  position:fixed;
-  width:56px;
-  height:56px;
-  min-width:56px;
-  min-height:56px;
-  max-width:56px;
-  max-height:56px;
-  border-radius:50%;
-  background:linear-gradient(135deg,#25D366,#128C7E);
-  color:#fff;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  box-shadow:0 8px 20px rgba(37,211,102,.4);
-  cursor:pointer;
-  z-index:9999;
-  touch-action:none;
-  transition:box-shadow .1s, transform .1s;
-  bottom:80px;
-  right:16px;
-  left:auto;
-  top:auto;
-  box-sizing:border-box;
-  overflow:hidden;
-  flex-shrink:0;
-}
-.whatsapp-fab:active{
-  box-shadow:0 4px 10px rgba(37,211,102,.6);
-  transform:scale(.95);
-}
-.whatsapp-fab svg{
-  width:32px;
-  height:32px;
-  min-width:32px;
-  min-height:32px;
-  max-width:32px;
-  max-height:32px;
-  pointer-events:none;
-  flex-shrink:0;
-  display:block;
-}
+.whatsapp-fab{position:fixed;width:56px;height:56px;min-width:56px;min-height:56px;max-width:56px;max-height:56px;border-radius:50%;background:linear-gradient(135deg,#25D366,#128C7E);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 20px rgba(37,211,102,.4);cursor:pointer;z-index:9999;touch-action:none;transition:box-shadow .1s, transform .1s;bottom:80px;right:16px;left:auto;top:auto;box-sizing:border-box;overflow:hidden;flex-shrink:0}
+.whatsapp-fab:active{box-shadow:0 4px 10px rgba(37,211,102,.6);transform:scale(.95)}
+.whatsapp-fab svg{width:32px;height:32px;min-width:32px;min-height:32px;max-width:32px;max-height:32px;pointer-events:none;flex-shrink:0;display:block}
 
 @media(min-width:640px){
   .grid{grid-template-columns:repeat(3,minmax(0,1fr))}
@@ -292,12 +250,30 @@ nav.botnav{position:fixed;bottom:0;left:0;right:0;z-index:30;background:rgba(255
 <button class="navbtn" data-page="codes" onclick="nav('codes')"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a1 1 0 01-1 1h-5v-7H10v7H5a1 1 0 01-1-1V9z"/></svg>My Keys</button>
 <button class="navbtn" data-page="account" onclick="nav('account')"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-7 8-7s8 3 8 7"/></svg>Account</button>
 </div></nav>
-<div class="modal" id="modal" onclick="if(event.target===this)closeModal()"><div class="modal-card" id="modalContent" style="position:relative"></div></div>
+<div class="modal" id="modal" onclick="if(event.target===this)closeModal()"><div class="modal-card" id="modalContent"></div></div>
 <div class="modal" id="authModal" onclick="if(event.target===this)closeAuth()"><div class="modal-card" id="authContent" style="max-width:380px"></div></div>
 <div class="sidebar" id="sidebar"><div class="sidebar-bg" onclick="closeSidebar()"></div><div class="sidebar-panel" id="sidebarPanel"></div></div>
 
-<a href="#" id="whatsappFab" class="whatsapp-fab" target="_blank" title="Chat on WhatsApp" style="width:56px;height:56px;position:fixed;">
-  <svg viewBox="0 0 24 24" fill="currentColor" style="width:32px;height:32px;display:block;">
+<!-- WELCOME POPUP MODAL -->
+<div class="modal" id="welcomeModal" style="z-index: 10000; background: rgba(15,23,42,.75);">
+  <div class="modal-card" style="padding: 0; overflow: hidden; border-radius: 24px; max-width: 400px;">
+    <div id="welcomeImageBox" style="width:100%; display:none; background:#f1f5f9;">
+      <img id="welcomeImg" src="" style="width:100%; height:auto; display:block; object-fit:cover;">
+    </div>
+    <div style="padding: 24px 20px; text-align: center;">
+      <p id="welcomeTextContent" style="font-size: 14px; font-weight: 500; color: var(--text); line-height: 1.6; margin-bottom: 20px;"></p>
+      <a id="welcomeVideoBtn" href="#" target="_blank" class="btn-primary btn-full" style="display: inline-block; text-decoration: none; padding: 14px; margin-bottom: 10px;">
+        ▶️ ভিডিও লিংক
+      </a>
+      <button onclick="closeWelcomeModal()" class="btn-full" style="background: var(--red); color: #fff; font-size: 15px; font-weight: 700; padding: 14px; box-shadow: 0 4px 12px rgba(239,68,68,.3);">
+        ✕ CLOSE
+      </button>
+    </div>
+  </div>
+</div>
+
+<a href="#" id="whatsappFab" class="whatsapp-fab" target="_blank" title="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor">
     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
   </svg>
 </a>
@@ -310,567 +286,904 @@ var FIREBASE_CONFIG = {
   storageBucket: "free-fire-panel-611d6.firebasestorage.app",
   messagingSenderId: "374641641780",
   appId: "1:374641641780:web:c87d374edf2371dae47d61",
-  databaseURL:       ""
+  databaseURL: ""
 };
-var TELEGRAM_CONFIG = { botToken: "8886507238:AAEW429taQKomorvb1mD2PhnZD3exlOPmyc", chatId: "7427334644" };
 </script>
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
 <script>
-let fbApp=null,fbDb=null,fbAuth=null,fbConnected=false,fbSyncStarted=false;
-function getFbConfig(){
-  var c = (typeof FIREBASE_CONFIG!=='undefined') ? FIREBASE_CONFIG : {};
-  if(c.apiKey && c.projectId && c.appId){ return {apiKey:c.apiKey, authDomain:c.authDomain||'', projectId:c.projectId, databaseURL:c.databaseURL||'', storageBucket:c.storageBucket||'', messagingSenderId:c.messagingSenderId||'', appId:c.appId}; }
-  return null;
-}
+/* ================= FIREBASE ================= */
+let fbDb=null, fbConnected=false, fbSyncStarted=false;
 function initFirebase(){
   try{
-    if(typeof firebase==='undefined'||fbConnected)return fbConnected;
-    const cfg = getFbConfig(); if(!cfg)return false;
-    const config={apiKey:cfg.apiKey,authDomain:cfg.authDomain,projectId:cfg.projectId,storageBucket:cfg.storageBucket,messagingSenderId:cfg.messagingSenderId,appId:cfg.appId};
-    if(cfg.databaseURL) config.databaseURL = cfg.databaseURL;
-    if(!firebase.apps.length) fbApp = firebase.initializeApp(config); else fbApp = firebase.app();
-    fbDb = firebase.firestore(); fbAuth = firebase.auth(); fbConnected = true; return true;
-  }catch(e){return false}
-}
-function fbSync(collection,data){
-  if(!fbConnected||!fbDb)return;
-  try{fbDb.collection(collection).doc('main').set({data:JSON.stringify(data),updatedAt:new Date().toISOString()}).catch(()=>{})}catch(e){}
-}
-function fbPushItem(col,item){
-  if(!fbConnected||!fbDb)return;
-  try{
-    const ref = fbDb.collection(col).doc('main');
-    fbDb.runTransaction(function(tx){
-      return tx.get(ref).then(function(doc){
-        let arr=[]; if(doc.exists){try{arr=JSON.parse(doc.data().data||'[]')}catch(e){}}
-        if(!Array.isArray(arr))arr=[]; arr.push(item);
-        tx.set(ref,{data:JSON.stringify(arr),updatedAt:new Date().toISOString()});
+    if(typeof firebase==='undefined' || fbConnected) return fbConnected;
+    if(!firebase.apps.length){
+      firebase.initializeApp({
+        apiKey:FIREBASE_CONFIG.apiKey, authDomain:FIREBASE_CONFIG.authDomain,
+        projectId:FIREBASE_CONFIG.projectId, storageBucket:FIREBASE_CONFIG.storageBucket,
+        messagingSenderId:FIREBASE_CONFIG.messagingSenderId, appId:FIREBASE_CONFIG.appId
       });
-    }).catch(()=>{});
+    }
+    fbDb=firebase.firestore(); fbConnected=true; return true;
+  }catch(e){ console.warn(e); return false; }
+}
+function fbDoc(col){ return fbDb.collection(col).doc('main'); }
+function fbSave(col, arr){
+  if(!fbConnected) return;
+  try{ fbDoc(col).set({data:JSON.stringify(arr), updatedAt:new Date().toISOString()}).catch(e=>console.warn(e)); }catch(e){}
+}
+function fbLoad(col, cb){
+  if(!fbConnected){ cb && cb(null); return; }
+  try{
+    fbDoc(col).get().then(doc=>{
+      if(doc.exists){ try{ cb && cb(JSON.parse(doc.data().data||'[]')); }catch(e){ cb && cb(null); } }
+      else cb && cb(null);
+    }).catch(()=>cb && cb(null));
+  }catch(e){ cb && cb(null); }
+}
+function fbListen(col, cb){
+  if(!fbConnected) return;
+  try{
+    fbDoc(col).onSnapshot(doc=>{
+      if(doc.exists){ try{ cb && cb(JSON.parse(doc.data().data||'[]')); }catch(e){} }
+    });
   }catch(e){}
 }
-function fbReconcile(col,localArr){
-  if(!fbConnected||!fbDb||!Array.isArray(localArr)||localArr.length===0)return;
-  try{fbDb.collection(col).doc('main').get().then(function(doc){ if(!doc.exists){fbSync(col,localArr)} }).catch(()=>{});}catch(e){}
-}
-function fbLoad(collection,callback){
-  if(!fbConnected||!fbDb){callback&&callback(null);return}
-  try{fbDb.collection(collection).doc('main').get().then(doc=>{ if(doc.exists){const data=JSON.parse(doc.data().data||'[]');callback&&callback(data)}else{callback&&callback(null)} }).catch(()=>{callback&&callback(null)})}catch(e){callback&&callback(null)}
-}
-function fbListen(collection,callback){
-  if(!fbConnected||!fbDb)return;
-  try{fbDb.collection(collection).doc('main').onSnapshot(doc=>{ if(doc.exists){try{const data=JSON.parse(doc.data().data||'[]');callback&&callback(data)}catch(e){}} })}catch(e){}
-}
+
+/* ================= STATE ================= */
+const DEFAULT_SETTINGS = {
+  site_name:'Panel Bajar', tagline:'Buy Premium Mods & Hacks',
+  notification:'স্বাগতম Panel Bajar-এ!', notif_active:true,
+  offer_text:'🔥 MEGA অফার! সব প্রোডাক্টে ৫০% ছাড়!', offer_active:true,
+  telegram:'https://t.me/panelbajar', youtube:'https://youtube.com/@panelbajar',
+  bkash_number:'01XXXXXXXXX', help_url:'https://t.me/panelbajar',
+  ads:[], ad_delay:3000, is_online:true, logo_url:'#', logo_image:'',
+  online_start:'00:00', online_end:'23:59', whatsapp_number:'8801700000000',
+  welcome_active:false, welcome_image:'', welcome_text:'ভিডিওটি শুরু থেকে শেষ পর্যন্ত দেখুন, যাতে পেমেন্ট করতে বা প্যানেল কিনতে কোনো সমস্যা না হয়।', welcome_link:''
+};
 
 let state = {
   user: JSON.parse(localStorage.getItem('pb_user')||'null'),
   users: JSON.parse(localStorage.getItem('pb_users')||'[]'),
   products: JSON.parse(localStorage.getItem('pb_products')||'[]'),
   orders: JSON.parse(localStorage.getItem('pb_orders')||'[]'),
-  settings: JSON.parse(localStorage.getItem('pb_settings')||JSON.stringify({
-    site_name:'Panel Bajar', tagline:'Buy Premium Mods & Hacks', notification:'স্বাগতম Panel Bajar-এ!', notif_active:true,
-    offer_text:'🔥 মEGA অফার! সব প্রোডাক্টে ৫০% ছাড় — সীমিত সময়ের জন্য! 🔥', offer_active:true,
-    telegram:'https://t.me/panelbajar', youtube:'https://youtube.com/@panelbajar', bkash_number:'01XXXXXXXXX', help_url:'https://t.me/panelbajar',
-    ads:[], ad_delay:3000,
-    is_online: true, logo_url: '#', logo_image:'',
-    online_start: '00:00', online_end: '23:59', whatsapp_number: '8801700000000'
-  })),
+  settings: {...DEFAULT_SETTINGS, ...JSON.parse(localStorage.getItem('pb_settings')||'{}')},
   page:'home', productTab:'NON_ROOT', authMode:'login'
 };
-function save(){['users','products','orders'].forEach(k=>localStorage.setItem('pb_'+k,JSON.stringify(state[k])));localStorage.setItem('pb_user',JSON.stringify(state.user));localStorage.setItem('pb_settings',JSON.stringify(state.settings))}
-function uid(){return Date.now().toString(36)+Math.random().toString(36).slice(2,6)}
-function $(id){return document.getElementById(id)}
-function fmt(n){return '৳'+Number(n).toFixed(0)}
-function tAgo(d){return new Date(d).toLocaleString('bn-BD')}
-function timeAgoShort(d){const diff=Date.now()-new Date(d).getTime();const m=Math.floor(diff/60000);if(m<1)return 'এইমাত্র';if(m<60)return m+' মিনিট আগে';const h=Math.floor(m/60);if(h<24)return h+' ঘন্টা আগে';return Math.floor(h/24)+' দিন আগে'}
-function toast(m){const t=document.createElement('div');t.className='toast';t.textContent=m;document.body.appendChild(t);setTimeout(()=>t.remove(),3000)}
-function copyText(text){try{if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(()=>toast('কপি হয়েছে')).catch(()=>fallbackCopy(text))}else{fallbackCopy(text)}}catch(e){fallbackCopy(text)}}
-function fallbackCopy(text){const ta=document.createElement('textarea');ta.value=text;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();try{document.execCommand('copy');toast('কপি হয়েছে')}catch(e){toast('কপি করতে সমস্যা')}document.body.removeChild(ta)}
 
-function handleLogoClick(){
-  const url = state.settings.logo_url;
-  if(url && url !== '#' && url.trim() !== ''){
-    window.open(url, '_blank');
-  }
+function saveLocal(){
+  try{
+    localStorage.setItem('pb_user', JSON.stringify(state.user));
+    localStorage.setItem('pb_users', JSON.stringify(state.users));
+    localStorage.setItem('pb_products', JSON.stringify(state.products));
+    localStorage.setItem('pb_orders', JSON.stringify(state.orders));
+    localStorage.setItem('pb_settings', JSON.stringify(state.settings));
+  }catch(e){}
+}
+function pushCol(col){
+  const map = {users:state.users, products:state.products, orders:state.orders, settings:[state.settings]};
+  if(!map[col]) return;
+  saveLocal();
+  fbSave(col, map[col]);
+}
+function uid(){ return Date.now().toString(36)+Math.random().toString(36).slice(2,6); }
+function $(id){ return document.getElementById(id); }
+function esc(s){ return String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+function fmt(n){ return '৳'+Number(n||0).toFixed(0); }
+function tAgo(d){ try{ return new Date(d).toLocaleString('bn-BD'); }catch(e){ return ''; } }
+function timeAgoShort(d){
+  const diff=Date.now()-new Date(d).getTime();
+  const m=Math.floor(diff/60000);
+  if(m<1) return 'এইমাত্র';
+  if(m<60) return m+' মিনিট আগে';
+  const h=Math.floor(m/60); if(h<24) return h+' ঘন্টা আগে';
+  return Math.floor(h/24)+' দিন আগে';
+}
+function toast(m){
+  const t=document.createElement('div');
+  t.className='toast'; t.textContent=m;
+  document.body.appendChild(t);
+  setTimeout(()=>t.remove(),3000);
+}
+function copyText(text){
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(()=>toast('কপি হয়েছে')).catch(()=>fallbackCopy(text));
+  } else fallbackCopy(text);
+}
+function fallbackCopy(text){
+  const ta=document.createElement('textarea');
+  ta.value=text; ta.style.position='fixed'; ta.style.opacity='0';
+  document.body.appendChild(ta); ta.select();
+  try{ document.execCommand('copy'); toast('কপি হয়েছে'); }catch(e){ toast('কপি সমস্যা'); }
+  document.body.removeChild(ta);
 }
 
-// ====== ONLINE/OFFLINE TIMER LOGIC ======
+/* ================= ONLINE ================= */
 function isStoreOnline(){
-  const s = state.settings;
+  const s=state.settings;
   if(s.is_online === false) return false;
   if(!s.online_start || !s.online_end) return true;
-
   const now = new Date();
-  const currentMins = now.getHours() * 60 + now.getMinutes();
-  
-  const [startH, startM] = s.online_start.split(':').map(Number);
-  const [endH, endM] = s.online_end.split(':').map(Number);
-  const startMins = startH * 60 + startM;
-  const endMins = endH * 60 + endM;
-
-  if (startMins <= endMins) {
-    return currentMins >= startMins && currentMins <= endMins;
-  } else {
-    return currentMins >= startMins || currentMins <= endMins;
-  }
+  const cur = now.getHours()*60 + now.getMinutes();
+  const [sh,sm] = s.online_start.split(':').map(Number);
+  const [eh,em] = s.online_end.split(':').map(Number);
+  const start = sh*60+sm, end = eh*60+em;
+  if(start <= end) return cur >= start && cur <= end;
+  return cur >= start || cur <= end;
 }
 
-// ====== WHATSAPP DRAG & CLICK LOGIC ======
-function updateWhatsappLink() {
-  const fab = $('whatsappFab');
-  if(!fab) return;
-  let num = state.settings.whatsapp_number || '8801700000000';
-  num = num.replace(/[^0-9]/g, '');
-  fab.href = `https://wa.me/${num}`;
+/* ================= LOGO ================= */
+function handleLogoClick(){
+  const url = state.settings.logo_url;
+  if(url && url !== '#' && url.trim() !== '') window.open(url, '_blank');
 }
 
-function initWhatsappDrag() {
-  const fab = $('whatsappFab');
-  if(!fab) return;
-  
-  updateWhatsappLink();
-
-  let isDragging = false;
-  let hasDragged = false;
-  let startX, startY, initialX, initialY;
-  let currentX, currentY;
-
-  const savedPos = localStorage.getItem('wa_btn_pos');
-  if(savedPos) {
-    try {
-      const pos = JSON.parse(savedPos);
-      currentX = Math.max(10, Math.min(pos.x, window.innerWidth - 66));
-      currentY = Math.max(70, Math.min(pos.y, window.innerHeight - 140));
-    } catch(e){
-      currentX = window.innerWidth - 72;
-      currentY = window.innerHeight - 150;
-    }
-  } else {
-    currentX = window.innerWidth - 72;
-    currentY = window.innerHeight - 150;
-  }
-  
-  applyPos();
-
-  function applyPos(){
-    fab.style.bottom = 'auto';
-    fab.style.right = 'auto';
-    fab.style.left = currentX + 'px';
-    fab.style.top = currentY + 'px';
-    fab.style.width = '56px';
-    fab.style.height = '56px';
-  }
-
-  window.addEventListener('resize', function(){
-    currentX = Math.max(10, Math.min(currentX, window.innerWidth - 66));
-    currentY = Math.max(70, Math.min(currentY, window.innerHeight - 140));
-    applyPos();
-  });
-
-  fab.addEventListener('touchstart', handleStart, {passive: false});
-  fab.addEventListener('touchmove', handleMove, {passive: false});
-  fab.addEventListener('touchend', handleEnd);
-  
-  fab.addEventListener('mousedown', handleStart);
-  window.addEventListener('mousemove', handleMove);
-  window.addEventListener('mouseup', handleEnd);
-
-  function handleStart(e) {
-    if (e.type === 'mousedown') e.preventDefault();
-    isDragging = true;
-    hasDragged = false;
-    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-    const clientY = e.touches ? e.touches[0].clientY : e.clientY;
-    startX = clientX;
-    startY = clientY;
-    initialX = currentX;
-    initialY = currentY;
-    fab.style.transition = 'none';
-  }
-
-  function handleMove(e) {
-    if (!isDragging) return;
-    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-    const clientY = e.touches ? e.touches[0].clientY : e.clientY;
-    const dx = clientX - startX;
-    const dy = clientY - startY;
-    if (Math.abs(dx) > 5 || Math.abs(dy) > 5) {
-      hasDragged = true;
-      if (e.type === 'touchmove') e.preventDefault();
-    }
-    if(!hasDragged) return;
-    
-    currentX = initialX + dx;
-    currentY = initialY + dy;
-    currentX = Math.max(10, Math.min(currentX, window.innerWidth - 66));
-    currentY = Math.max(70, Math.min(currentY, window.innerHeight - 140));
-    fab.style.left = currentX + 'px';
-    fab.style.top = currentY + 'px';
-    fab.style.bottom = 'auto';
-    fab.style.right = 'auto';
-  }
-
-  function handleEnd(e) {
-    if (!isDragging) return;
-    isDragging = false;
-    fab.style.transition = 'box-shadow .1s, transform .1s';
-    if (hasDragged) {
-      localStorage.setItem('wa_btn_pos', JSON.stringify({x: currentX, y: currentY}));
-    } else {
-      const target = e.target.closest('a');
-      if (target && target.href) {
-        window.open(target.href, '_blank');
-      }
-    }
-  }
-
-  fab.addEventListener('contextmenu', e => e.preventDefault());
+/* ================= AUTH ================= */
+function openAuth(mode){ state.authMode=mode||'login'; renderAuth(); $('authModal').classList.add('show'); }
+function closeAuth(){ $('authModal').classList.remove('show'); }
+function toggleAuthMode(){ state.authMode = state.authMode==='login'?'register':'login'; renderAuth(); }
+function renderAuth(){
+  const isL = state.authMode==='login';
+  $('authContent').innerHTML = `
+    <button class="modal-close" onclick="closeAuth()">✕</button>
+    <h2 class="modal-title">${isL?'লগইন করুন':'রেজিস্টার করুন'}</h2>
+    <div class="field" style="display:${isL?'none':'block'}">
+      <label>ইউজারনেম</label>
+      <input id="authUsername" placeholder="আপনার নাম" />
+    </div>
+    <div class="field">
+      <label>ইমেইল</label>
+      <input id="authEmail" type="email" placeholder="email@example.com" />
+    </div>
+    <div class="field">
+      <label>পাসওয়ার্ড</label>
+      <input id="authPassword" type="password" placeholder="••••••••" onkeydown="if(event.key==='Enter')doAuth()" />
+    </div>
+    <button class="btn-primary btn-full" onclick="doAuth()">${isL?'লগইন':'রেজিস্টার'}</button>
+    <p class="auth-toggle">${isL?'অ্যাকাউন্ট নেই?':'ইতিমধ্যে আছে?'}<button onclick="toggleAuthMode()">${isL?'রেজিস্টার':'লগইন'}</button></p>`;
 }
-
-function openAuth(mode){state.authMode=mode||'login';renderAuth();$('authModal').classList.add('show')}
-function closeAuth(){$('authModal').classList.remove('show')}
-function toggleAuthMode(){state.authMode=state.authMode==='login'?'register':'login';renderAuth()}
-function renderAuth(){const isL=state.authMode==='login';$('authContent').innerHTML=`<h2 class="modal-title">${isL?'লগইন করুন':'রেজিস্টার করুন'}</h2><div class="field" style="display:${isL?'none':'block'}"><label>ইউজারনেম</label><input id="authUsername" placeholder="আপনার নাম" /></div><div class="field"><label>ইমেইল</label><input id="authEmail" type="email" placeholder="email@example.com" /></div><div class="field"><label>পাসওয়ার্ড</label><input id="authPassword" type="password" placeholder="••••••••" onkeydown="if(event.key==='Enter')doAuth()" /></div><button class="btn-primary btn-full" onclick="doAuth()">${isL?'লগইন':'রেজিস্টার'}</button><p class="auth-toggle">${isL?'অ্যাকাউন্ট নেই?':'ইতিমধ্যে অ্যাকাউন্ট আছে?'}<button onclick="toggleAuthMode()">${isL?'রেজিস্টার করুন':'লগইন করুন'}</button></p>`}
 function doAuth(){
-  const e=$('authEmail').value.trim().toLowerCase();const p=$('authPassword').value;
-  if(!e||!p){toast('সব ঘর পূরণ করুন');return}
+  const e = ($('authEmail').value||'').trim().toLowerCase();
+  const p = $('authPassword').value;
+  if(!e||!p){ toast('সব ঘর পূরণ করুন'); return; }
+  
   if(state.authMode==='register'){
-    const u=$('authUsername').value.trim();if(!u){toast('ইউজারনেম দিন');return}
-    if(state.users.find(x=>x.email===e)){toast('এই ইমেইল ইতিমধ্যে ব্যবহৃত');return}
-    const colors=['#ec4899','#7c3aed','#06b6d4','#f97316','#10b981'];
-    const nu={id:uid(),email:e,username:u,password:p,role:'USER',totalOrders:0,totalSpent:0,banned:false,avatarColor:colors[Math.floor(Math.random()*colors.length)],createdAt:new Date().toISOString()};
-    state.users.push(nu);state.user=nu;save();fbPushItem('users',nu);closeAuth();toast('অ্যাকাউন্ট তৈরি হয়েছে!');render()
-  }else{
-    const u=state.users.find(x=>x.email===e);
-    if(!u||u.password!==p){toast('ইমেইল/পাসওয়ার্ড ভুল');return}
-    if(u.banned){toast('অ্যাকাউন্ট ব্যান করা');return}
-    state.user=u;save();closeAuth();toast('স্বাগতম!');render()
+    const u = ($('authUsername').value||'').trim();
+    if(!u){ toast('ইউজারনেম দিন'); return; }
+    if(state.users.find(x=>x.email===e)){ toast('এই ইমেইল ইতিমধ্যে ব্যবহৃত'); return; }
+    const colors = ['#ec4899','#7c3aed','#06b6d4','#f97316','#10b981'];
+    const nu = {
+      id:uid(), email:e, username:u, password:p,
+      role:'USER', totalOrders:0, totalSpent:0, banned:false,
+      avatarColor: colors[Math.floor(Math.random()*colors.length)],
+      createdAt: new Date().toISOString()
+    };
+    state.users.push(nu);
+    state.user = nu;
+    saveLocal();
+    pushCol('users');
+    closeAuth();
+    toast('অ্যাকাউন্ট তৈরি হয়েছে!');
+    render();
+  } else {
+    const u = state.users.find(x=>x.email===e);
+    if(!u || u.password!==p){ toast('ইমেইল/পাসওয়ার্ড ভুল'); return; }
+    if(u.banned){ toast('অ্যাকাউন্ট ব্যান করা'); return; }
+    state.user = u;
+    saveLocal();
+    closeAuth();
+    toast('স্বাগতম!');
+    render();
   }
 }
-function logout(){state.user=null;save();toast('লগআউট হয়েছে');nav('home')}
-function nav(p){if(!state.user&&['orders','codes','account'].includes(p)){openAuth('login');return}state.page=p;render()}
-function openSidebar(){$('sidebar').classList.add('show')}
-function closeSidebar(){$('sidebar').classList.remove('show')}
-function openModal(html){$('modalContent').innerHTML=html;$('modal').classList.add('show')}
-function closeModal(){$('modal').classList.remove('show')}
-window.addEventListener('storage',function(e){
-  if(e.key&&e.key.startsWith('pb_')){
-    state.users=JSON.parse(localStorage.getItem('pb_users')||'[]'); state.products=JSON.parse(localStorage.getItem('pb_products')||'[]');
-    state.orders=JSON.parse(localStorage.getItem('pb_orders')||'[]'); state.settings=JSON.parse(localStorage.getItem('pb_settings')||JSON.stringify(state.settings));
-    if(state.user){const f=state.users.find(x=>x.id===state.user.id);if(f)state.user=f} 
-    updateWhatsappLink();
-    render()
-  }
-});
+function logout(){ state.user=null; saveLocal(); toast('লগআউট হয়েছে'); nav('home'); }
 
+/* ================= NAV ================= */
+function nav(p){
+  if(!state.user && ['orders','codes','account'].includes(p)){ openAuth('login'); return; }
+  state.page = p; render();
+}
+function openSidebar(){ $('sidebar').classList.add('show'); }
+function closeSidebar(){ $('sidebar').classList.remove('show'); }
+function openModal(html){ $('modalContent').innerHTML=html; $('modal').classList.add('show'); }
+function closeModal(){ $('modal').classList.remove('show'); }
+
+/* ================= LIVE FEED ================= */
 function generateLiveFeed(){
-  const real=state.orders.slice().reverse().slice(0,6).map(o=>{ const u=state.users.find(x=>x.id===o.userId); const p=state.products.find(x=>x.id===o.productId); return{user:u?.username||'User',color:u?.avatarColor||'#7c3aed',product:p?.name||'Product',icon:p?.icon||'🎮',time:o.createdAt,real:true} });
-  const demoNames=[['Rahim','#ec4899'],['Karim','#7c3aed'],['Sadia','#06b6d4'],['Tanvir','#f97316'],['Nusrat','#10b981'],['Imran','#ef4444'],['Farhan','#7c3aed'],['Mim','#ec4899']];
-  const demoProducts=state.products.filter(p=>p.status==='ACTIVE'); if(demoProducts.length===0)return real;
-  const demo=[]; for(let i=0;i<6;i++){ const n=demoNames[Math.floor(Math.random()*demoNames.length)]; const p=demoProducts[Math.floor(Math.random()*demoProducts.length)]; demo.push({user:n[0],color:n[1],product:p.name,icon:p.icon,time:new Date(Date.now()-Math.floor(Math.random()*60*60*1000)).toISOString(),real:false}) }
-  return[...real,...demo].sort((a,b)=>new Date(b.time)-new Date(a.time)).slice(0,6)
+  const real = state.orders.slice().reverse().slice(0,6).map(o=>{
+    const u = state.users.find(x=>x.id===o.userId);
+    const p = state.products.find(x=>x.id===o.productId);
+    return {user:u?.username||'User', color:u?.avatarColor||'#7c3aed', product:p?.name||'Product', icon:p?.icon||'🎮', time:o.createdAt, real:true};
+  });
+  const demoNames = [['Rahim','#ec4899'],['Karim','#7c3aed'],['Sadia','#06b6d4'],['Tanvir','#f97316'],['Nusrat','#10b981']];
+  const demoProducts = state.products.filter(p=>p.status==='ACTIVE');
+  if(demoProducts.length===0) return real;
+  const demo = [];
+  for(let i=0;i<3;i++){
+    const n = demoNames[Math.floor(Math.random()*demoNames.length)];
+    const p = demoProducts[Math.floor(Math.random()*demoProducts.length)];
+    demo.push({user:n[0], color:n[1], product:p.name, icon:p.icon, time:new Date(Date.now()-Math.floor(Math.random()*3600000)).toISOString(), real:false});
+  }
+  return [...real, ...demo].sort((a,b)=>new Date(b.time)-new Date(a.time)).slice(0,6);
 }
 function renderLiveFeedItems(){
-  const items=generateLiveFeed(); if(items.length===0)return '<div style="text-align:center;padding:16px;color:var(--muted);font-size:12px">এখনো কোনো অর্ডার নেই</div>';
-  return items.map(it=>`<div class="live-item"><div class="live-avatar" style="background:${it.color}">${it.user.slice(0,2).toUpperCase()}</div><div class="live-body"><div class="live-text"><strong>${it.user}</strong> কিনেছেন <span style="font-size:16px;margin:0 2px">${it.icon}</span> ${it.product}${it.real?' <span style="color:var(--green);font-size:10px">✓</span>':''}</div><div class="live-time">⏰ ${timeAgoShort(it.time)}</div></div></div>`).join('')
+  const items = generateLiveFeed();
+  if(items.length===0) return '<div style="text-align:center;padding:16px;color:var(--muted);font-size:12px">এখনো কোনো অর্ডার নেই</div>';
+  return items.map(it=>`
+    <div class="live-item">
+      <div class="live-avatar" style="background:${esc(it.color)}">${esc(it.user.slice(0,2).toUpperCase())}</div>
+      <div class="live-body">
+        <div class="live-text"><strong>${esc(it.user)}</strong> কিনেছেন <span style="font-size:16px;margin:0 2px">${esc(it.icon)}</span> ${esc(it.product)}${it.real?' <span style="color:var(--green);font-size:10px">✓</span>':''}</div>
+        <div class="live-time">⏰ ${timeAgoShort(it.time)}</div>
+      </div>
+    </div>`).join('');
 }
-setInterval(function(){
-  state.orders=JSON.parse(localStorage.getItem('pb_orders')||'[]'); state.users=JSON.parse(localStorage.getItem('pb_users')||'[]');
-  state.settings=JSON.parse(localStorage.getItem('pb_settings')||JSON.stringify(state.settings));
-  if(state.page==='home'){const f=document.getElementById('liveFeed');if(f)f.innerHTML=renderLiveFeedItems()}
+setInterval(()=>{
+  if(state.page==='home'){
+    const f = $('liveFeed');
+    if(f) f.innerHTML = renderLiveFeedItems();
+  }
   updateStatusBadge();
   updateWhatsappLink();
-},3500);
+},4000);
 
 function updateStatusBadge(){
   const hr = $('headerRight');
   if(!hr) return;
-  const isOnline = isStoreOnline();
-  const statusEl = hr.querySelector('.status-badge');
-  if(statusEl) {
-    if(isOnline) {
-      statusEl.className = 'status-badge online';
-      statusEl.innerHTML = '<span class="status-dot"></span> online';
-    } else {
-      statusEl.className = 'status-badge offline';
-      statusEl.innerHTML = '<span class="status-dot"></span> offline';
-    }
+  const online = isStoreOnline();
+  const el = hr.querySelector('.status-badge');
+  if(el){
+    el.className = 'status-badge ' + (online?'online':'offline');
+    el.innerHTML = '<span class="status-dot"></span> ' + (online?'online':'offline');
   }
 }
 
+/* ================= RENDER ================= */
 function render(){
-  $('siteName').textContent=state.settings.site_name;
+  $('siteName').textContent = state.settings.site_name || 'Panel Bajar';
   
-  const logoBadge = $('logoBadge');
-  if(state.settings.logo_image && state.settings.logo_image.trim() !== '') {
-    logoBadge.innerHTML = `<img src="${state.settings.logo_image}" alt="Logo" onerror="this.style.display='none';this.parentElement.textContent='PB'">`;
-  } else {
-    logoBadge.innerHTML = 'PB';
-  }
-
-  const hr=$('headerRight');
-  const isOnline = isStoreOnline();
-  const statusHtml = isOnline 
-    ? `<div class="status-badge online"><span class="status-dot"></span> online/div>`
+  const logo = $('logoBadge');
+  if(state.settings.logo_image && state.settings.logo_image.trim()){
+    logo.innerHTML = `<img src="${esc(state.settings.logo_image)}" alt="Logo" onerror="this.style.display='none';this.parentElement.textContent='PB'">`;
+  } else logo.textContent = 'PB';
+  
+  const hr = $('headerRight');
+  const online = isStoreOnline();
+  const statusHtml = online
+    ? `<div class="status-badge online"><span class="status-dot"></span> online</div>`
     : `<div class="status-badge offline"><span class="status-dot"></span> offline</div>`;
-
-  if(state.user){ 
-    hr.innerHTML = `${statusHtml}<button class="btn-avatar" style="background:${state.user.avatarColor}" onclick="openSidebar()">${state.user.username.slice(0,2).toUpperCase()}</button>`; 
-  }
-  else{ 
-    hr.innerHTML = `${statusHtml}<button class="btn-login" onclick="openAuth('login')">লগইন</button>`; 
+  
+  if(state.user){
+    hr.innerHTML = `${statusHtml}<button class="btn-avatar" style="background:${esc(state.user.avatarColor||'#7c3aed')}" onclick="openSidebar()">${esc((state.user.username||'U').slice(0,2).toUpperCase())}</button>`;
+  } else {
+    hr.innerHTML = `${statusHtml}<button class="btn-login" onclick="openAuth('login')">লগইন</button>`;
   }
   
   if(state.user){
-    $('sidebarPanel').innerHTML=`<div class="sidebar-head"><button class="sidebar-close" onclick="closeSidebar()">✕</button><div class="avatar-lg" style="background:${state.user.avatarColor}">${state.user.username.slice(0,2).toUpperCase()}</div><div class="sidebar-name">${state.user.username}</div><div class="sidebar-email">${state.user.email}</div></div><nav class="sidebar-nav"><button onclick="nav('home');closeSidebar()">🏠 হোম</button><button onclick="nav('account');closeSidebar()">👤 My Account</button><button onclick="nav('orders');closeSidebar()">📦 My Order</button><button onclick="nav('codes');closeSidebar()">🎫 My Keys</button></nav><div class="sidebar-foot"><button class="btn-logout" onclick="logout()">🚪 লগআউট</button></div>`;
+    $('sidebarPanel').innerHTML = `
+      <div class="sidebar-head">
+        <button class="sidebar-close" onclick="closeSidebar()">✕</button>
+        <div class="avatar-lg" style="background:${esc(state.user.avatarColor||'#7c3aed')}">${esc((state.user.username||'U').slice(0,2).toUpperCase())}</div>
+        <div class="sidebar-name">${esc(state.user.username||'')}</div>
+        <div class="sidebar-email">${esc(state.user.email||'')}</div>
+      </div>
+      <nav class="sidebar-nav">
+        <button onclick="nav('home');closeSidebar()">🏠 হোম</button>
+        <button onclick="nav('account');closeSidebar()">👤 My Account</button>
+        <button onclick="nav('orders');closeSidebar()">📦 My Order</button>
+        <button onclick="nav('codes');closeSidebar()">🎫 My Keys</button>
+      </nav>
+      <div class="sidebar-foot"><button class="btn-logout" onclick="logout()">🚪 লগআউট</button></div>`;
   }
-  document.querySelectorAll('.navbtn').forEach(b=>b.classList.toggle('active',b.dataset.page===state.page));
-  const m=$('main');
-  if(state.page==='home')m.innerHTML=renderHome();
-  else if(state.page==='account')m.innerHTML=renderAccount();
-  else if(state.page==='orders')m.innerHTML=renderOrders();
-  else if(state.page==='codes')m.innerHTML=renderCodes();
-  window.scrollTo(0,0);
   
+  document.querySelectorAll('.navbtn').forEach(b=>b.classList.toggle('active', b.dataset.page===state.page));
+  
+  const m = $('main');
+  if(state.page==='home') m.innerHTML = renderHome();
+  else if(state.page==='account') m.innerHTML = renderAccount();
+  else if(state.page==='orders') m.innerHTML = renderOrders();
+  else if(state.page==='codes') m.innerHTML = renderCodes();
+  
+  window.scrollTo(0,0);
   if(state.page==='home') startAdSlider();
   updateWhatsappLink();
 }
 
-// ====== AD SLIDER ======
-let adSliderInterval=null;
-let adCurrentIndex=0;
-let adSlides=[];
-let adTrackEl=null;
-let adDrag=null;
-
-function adApplyTransform(anim){
-  if(!adTrackEl)return;
-  if(anim===false)adTrackEl.classList.add('no-anim');else adTrackEl.classList.remove('no-anim');
-  adTrackEl.style.transform='translateX(-'+(adCurrentIndex*100)+'%)';
+/* ================= AD SLIDER ================= */
+let adInterval=null, adIdx=0, adSlides=[], adTrack=null, adDrag=null;
+function adApply(anim){
+  if(!adTrack) return;
+  if(anim===false) adTrack.classList.add('no-anim'); else adTrack.classList.remove('no-anim');
+  adTrack.style.transform = 'translateX(-'+(adIdx*100)+'%)';
 }
-
-function adRestartAutoplay(){
-  if(adSliderInterval){clearInterval(adSliderInterval);adSliderInterval=null}
-  if(adSlides.length<=1)return;
-  const delay=Math.max(1500,Number(state.settings.ad_delay)||3000);
-  adSliderInterval=setInterval(function(){
-    goToAdSlide((adCurrentIndex+1)%adSlides.length);
-  },delay);
+function adRestart(){
+  if(adInterval){ clearInterval(adInterval); adInterval=null; }
+  if(adSlides.length<=1) return;
+  const delay = Math.max(1500, Number(state.settings.ad_delay)||3000);
+  adInterval = setInterval(()=>goToAdSlide((adIdx+1)%adSlides.length), delay);
 }
-
 function startAdSlider(){
-  if(adSliderInterval){clearInterval(adSliderInterval);adSliderInterval=null}
-  adTrackEl=document.querySelector('#adSlider .ad-track');
-  adSlides=document.querySelectorAll('#adSlider .ad-slide');
-  if(adSlides.length===0||!adTrackEl)return;
-  
-  if(adCurrentIndex>=adSlides.length)adCurrentIndex=0;
-  adSlides.forEach((s,i)=>s.classList.toggle('active',i===adCurrentIndex));
-  adApplyTransform(false);
-  requestAnimationFrame(function(){adApplyTransform(true)});
-  document.querySelectorAll('.ad-dot').forEach((d,i)=>d.classList.toggle('active',i===adCurrentIndex));
-  
+  if(adInterval){ clearInterval(adInterval); adInterval=null; }
+  adTrack = document.querySelector('#adSlider .ad-track');
+  adSlides = document.querySelectorAll('#adSlider .ad-slide');
+  if(adSlides.length===0||!adTrack) return;
+  if(adIdx>=adSlides.length) adIdx=0;
+  adSlides.forEach((s,i)=>s.classList.toggle('active', i===adIdx));
+  adApply(false);
+  requestAnimationFrame(()=>adApply(true));
+  document.querySelectorAll('.ad-dot').forEach((d,i)=>d.classList.toggle('active', i===adIdx));
   initAdSwipe();
-  
   if(adSlides.length<=1){
-    const dd=document.querySelector('#adSlider .ad-dots');
-    if(dd)dd.classList.add('static');
+    const dd = document.querySelector('#adSlider .ad-dots');
+    if(dd) dd.classList.add('static');
     return;
   }
-  
-  const delay=Math.max(1500,Number(state.settings.ad_delay)||3000);
-  const dotsEl=document.querySelector('#adSlider .ad-dots');
-  if(dotsEl){dotsEl.classList.remove('static');dotsEl.style.setProperty('--ad-delay',delay+'ms')}
-  adRestartAutoplay();
+  const delay = Math.max(1500, Number(state.settings.ad_delay)||3000);
+  const dotsEl = document.querySelector('#adSlider .ad-dots');
+  if(dotsEl){ dotsEl.classList.remove('static'); dotsEl.style.setProperty('--ad-delay', delay+'ms'); }
+  adRestart();
 }
-
-function goToAdSlide(index){
-  if(!adSlides.length||!adTrackEl)return;
-  index=((index%adSlides.length)+adSlides.length)%adSlides.length;
-  adCurrentIndex=index;
-  adSlides.forEach((s,i)=>s.classList.toggle('active',i===index));
-  adApplyTransform(true);
-  document.querySelectorAll('.ad-dot').forEach((d,i)=>d.classList.toggle('active',i===index));
+function goToAdSlide(i){
+  if(!adSlides.length||!adTrack) return;
+  i = ((i%adSlides.length)+adSlides.length)%adSlides.length;
+  adIdx = i;
+  adSlides.forEach((s,k)=>s.classList.toggle('active', k===i));
+  adApply(true);
+  document.querySelectorAll('.ad-dot').forEach((d,k)=>d.classList.toggle('active', k===i));
 }
-
 function initAdSwipe(){
-  const slider=document.getElementById('adSlider');
-  if(!slider||slider.dataset.swipeBound)return;
+  const slider = $('adSlider');
+  if(!slider||slider.dataset.swipeBound) return;
   slider.dataset.swipeBound='1';
-  const down=e=>{
-    if(!adTrackEl)return;
-    if(e.target&&e.target.closest&&e.target.closest('.ad-dot'))return;
-    const p=e.touches?e.touches[0]:e;
-    adDrag={startX:p.clientX,startY:p.clientY,dx:0,axis:null,w:slider.offsetWidth||1};
-    if(adSlides.length<=1)return;
-    if(adSliderInterval){clearInterval(adSliderInterval);adSliderInterval=null}
-    adTrackEl.classList.add('no-anim');
+  const down = e=>{
+    if(!adTrack) return;
+    if(e.target&&e.target.closest&&e.target.closest('.ad-dot')) return;
+    const p = e.touches?e.touches[0]:e;
+    adDrag = {startX:p.clientX, startY:p.clientY, dx:0, axis:null, w:slider.offsetWidth||1};
+    if(adSlides.length<=1) return;
+    if(adInterval){ clearInterval(adInterval); adInterval=null; }
+    adTrack.classList.add('no-anim');
     slider.classList.add('ad-dragging');
   };
-  const move=e=>{
-    if(!adDrag||adSlides.length<=1)return;
-    const p=e.touches?e.touches[0]:e;
-    const dx=p.clientX-adDrag.startX,dy=p.clientY-adDrag.startY;
-    if(adDrag.axis===null&&(Math.abs(dx)>8||Math.abs(dy)>8))adDrag.axis=Math.abs(dx)>Math.abs(dy)?'x':'y';
-    if(adDrag.axis!=='x')return;
-    adDrag.dx=dx;
-    if(e.cancelable)e.preventDefault();
-    adTrackEl.style.transform='translateX(calc(-'+(adCurrentIndex*100)+'% + '+dx+'px))';
+  const move = e=>{
+    if(!adDrag||adSlides.length<=1) return;
+    const p = e.touches?e.touches[0]:e;
+    const dx = p.clientX-adDrag.startX, dy = p.clientY-adDrag.startY;
+    if(adDrag.axis===null && (Math.abs(dx)>8||Math.abs(dy)>8)) adDrag.axis = Math.abs(dx)>Math.abs(dy)?'x':'y';
+    if(adDrag.axis!=='x') return;
+    adDrag.dx = dx;
+    if(e.cancelable) e.preventDefault();
+    adTrack.style.transform = 'translateX(calc(-'+(adIdx*100)+'% + '+dx+'px))';
   };
-  const up=()=>{
-    if(!adDrag)return;
-    const d=adDrag;adDrag=null;
+  const up = ()=>{
+    if(!adDrag) return;
+    const d = adDrag; adDrag=null;
     slider.classList.remove('ad-dragging');
-    adTrackEl.classList.remove('no-anim');
+    adTrack.classList.remove('no-anim');
     if(d.axis===null){
-      const slideEl=adSlides[adCurrentIndex];
-      const link=slideEl?slideEl.getAttribute('data-link'):'';
-      if(link){try{window.open(link,'_blank')}catch(err){}}
-    }else if(d.axis==='x'&&Math.abs(d.dx)>(d.w*0.15)){
-      goToAdSlide(adCurrentIndex+(d.dx<0?1:-1));
-    }else{
-      adApplyTransform(true);
-    }
-    adRestartAutoplay();
+      const slideEl = adSlides[adIdx];
+      const link = slideEl?slideEl.getAttribute('data-link'):'';
+      if(link){ try{ window.open(link,'_blank'); }catch(e){} }
+    } else if(d.axis==='x' && Math.abs(d.dx)>(d.w*0.15)){
+      goToAdSlide(adIdx + (d.dx<0?1:-1));
+    } else adApply(true);
+    adRestart();
   };
-  slider.addEventListener('touchstart',down,{passive:true});
-  slider.addEventListener('touchmove',move,{passive:false});
-  slider.addEventListener('touchend',up);
-  slider.addEventListener('touchcancel',up);
-  slider.addEventListener('mousedown',down);
-  if(!window.__adSwipeGlobals){
-    window.__adSwipeGlobals=true;
-    window.addEventListener('mousemove',move);
-    window.addEventListener('mouseup',up);
+  slider.addEventListener('touchstart', down, {passive:true});
+  slider.addEventListener('touchmove', move, {passive:false});
+  slider.addEventListener('touchend', up);
+  slider.addEventListener('touchcancel', up);
+  slider.addEventListener('mousedown', down);
+  if(!window.__adSwipeG){
+    window.__adSwipeG = true;
+    window.addEventListener('mousemove', move);
+    window.addEventListener('mouseup', up);
   }
 }
 
+/* ================= HOME ================= */
 function renderHome(){
-  const prods=state.products.filter(p=>p.status==='ACTIVE'&&p.category===state.productTab);
-  const notif=state.settings.notif_active?`<div class="notif"><div class="notif-row"><span>🔔</span><div class="notif-text"><div class="marquee">${state.settings.notification} &nbsp;&nbsp;&nbsp; ${state.settings.notification}</div></div></div></div>`:'';
-  const offerBar=state.settings.offer_active&&state.settings.offer_text?`<div class="offer-bar"><div class="offer-inner"><span class="offer-icon">🎁</span><div class="offer-marquee"><span>${state.settings.offer_text} &nbsp;&nbsp; 🎁 &nbsp;&nbsp; ${state.settings.offer_text} &nbsp;&nbsp; 🎁 &nbsp;&nbsp; </span></div><span class="offer-icon">🔥</span></div></div>`:'';
-  const tabs=['NON_ROOT','ROOT','IPHONE','PC'].map(t=>`<button class="tab ${state.productTab===t?'active':''}" onclick="state.productTab='${t}';render()">${t==='NON_ROOT'?'🟢 NON ROOT':t==='ROOT'?'🔴 ROOT':t==='IPHONE'?'📱 IPHONE':'💻 PC'}</button>`).join('');
+  const prods = state.products.filter(p=>p.status==='ACTIVE' && p.category===state.productTab);
   
-  let adHtml='';
+  const notif = state.settings.notif_active ? `
+    <div class="notif"><div class="notif-row">
+      <span>🔔</span>
+      <div class="notif-text"><div class="marquee">${esc(state.settings.notification)} &nbsp;&nbsp;&nbsp; ${esc(state.settings.notification)}</div></div>
+    </div></div>` : '';
+  
+  const offerBar = state.settings.offer_active && state.settings.offer_text ? `
+    <div class="offer-bar"><div class="offer-inner">
+      <span class="offer-icon">🎁</span>
+      <div class="offer-marquee"><span>${esc(state.settings.offer_text)} &nbsp;&nbsp; 🎁 &nbsp;&nbsp; ${esc(state.settings.offer_text)} &nbsp;&nbsp; 🎁 &nbsp;&nbsp; </span></div>
+      <span class="offer-icon">🔥</span>
+    </div></div>` : '';
+  
+  const tabs = ['NON_ROOT','ROOT','IPHONE','PC'].map(t=>`
+    <button class="tab ${state.productTab===t?'active':''}" onclick="state.productTab='${t}';render()">
+      ${t==='NON_ROOT'?'🟢 NON ROOT':t==='ROOT'?'🔴 ROOT':t==='IPHONE'?'📱 IPHONE':'💻 PC'}
+    </button>`).join('');
+  
+  let adHtml = '';
   let rawAds = state.settings.ads || [];
-  
-  if (typeof rawAds === 'string') {
-    try { rawAds = JSON.parse(rawAds); } catch(e) { rawAds = []; }
-  }
-  if (!Array.isArray(rawAds)) rawAds = [];
-  
-  let ads = rawAds.map(ad => {
-    if (typeof ad === 'string') return { url: ad.trim(), link: '' };
-    if (ad && typeof ad === 'object') return { url: (ad.url || ad.image || '').trim(), link: (ad.link || '') };
+  if(typeof rawAds==='string'){ try{ rawAds=JSON.parse(rawAds); }catch(e){ rawAds=[]; } }
+  if(!Array.isArray(rawAds)) rawAds = [];
+  let ads = rawAds.map(ad=>{
+    if(typeof ad==='string') return {url:ad.trim(), link:''};
+    if(ad&&typeof ad==='object') return {url:(ad.url||ad.image||'').trim(), link:(ad.link||'')};
     return null;
-  }).filter(ad => ad && ad.url !== '');
-
-  if (ads.length > 0) {
+  }).filter(ad=>ad && ad.url!=='');
+  
+  if(ads.length>0){
     adHtml = `<div class="ad-slider" id="adSlider"><div class="ad-track">`;
-    ads.forEach((ad, i) => {
-      const safeUrl = String(ad.url).replace(/"/g, '&quot;');
-      adHtml += `<div class="ad-slide ${i===0?'active':''}" data-index="${i}" data-link="${String(ad.link||'').replace(/"/g,'&quot;')}">
-        <img src="${safeUrl}" alt="Ad ${i+1}" loading="${i===0?'eager':'lazy'}" 
-        onerror="this.onerror=null; this.style.display='none'; this.parentElement.classList.add('ad-fallback-active')" />
+    ads.forEach((ad,i)=>{
+      adHtml += `<div class="ad-slide ${i===0?'active':''}" data-index="${i}" data-link="${esc(ad.link||'')}">
+        <img src="${esc(ad.url)}" alt="Ad ${i+1}" loading="${i===0?'eager':'lazy'}"
+          onerror="this.onerror=null;this.style.display='none';this.parentElement.classList.add('ad-fallback-active')">
       </div>`;
     });
     adHtml += `</div><div class="ad-dots">`;
-    ads.forEach((_, i) => {
-      adHtml += `<div class="ad-dot ${i===0?'active':''}" data-dot="${i}" onclick="goToAdSlide(${i})"></div>`;
-    });
+    ads.forEach((_,i)=>{ adHtml += `<div class="ad-dot ${i===0?'active':''}" data-dot="${i}" onclick="goToAdSlide(${i})"></div>`; });
     adHtml += `</div></div>`;
   } else {
     adHtml = `<div class="ad-slider" id="adSlider"><div class="ad-track">
-      <div class="ad-slide active" style="background:linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
-        <div style="text-align:center;padding:20px;">
-          <div style="font-size:48px;margin-bottom:8px;filter:drop-shadow(0 4px 6px rgba(0,0,0,0.1))">🎮</div>
-          <h1 style="font-size:24px;font-weight:900;color:var(--text);margin-bottom:4px;letter-spacing:-0.5px">${state.settings.site_name}</h1>
-          <p style="font-size:13px;color:var(--muted);font-weight:500">${state.settings.tagline}</p>
+      <div class="ad-slide active" style="background:linear-gradient(135deg,#f8fafc 0%,#f1f5f9 100%)">
+        <div style="text-align:center;padding:20px">
+          <div style="font-size:48px;margin-bottom:8px">🎮</div>
+          <h1 style="font-size:24px;font-weight:900;color:var(--text)">${esc(state.settings.site_name)}</h1>
+          <p style="font-size:13px;color:var(--muted);font-weight:500">${esc(state.settings.tagline)}</p>
         </div>
       </div>
     </div></div>`;
   }
-
-  const socialBar=`<div class="social-bar"><a href="${state.settings.telegram}" target="_blank" class="tg">✈️ Telegram</a><a href="${state.settings.youtube}" target="_blank" class="yt">▶️ YouTube</a></div>`;
   
-  return offerBar+notif+adHtml+`<div class="live-feed"><div class="live-feed-head"><span class="live-dot"></span><div><div class="live-feed-title">🔴 LIVE Orders</div></div></div><div class="live-list" id="liveFeed">${renderLiveFeedItems()}</div></div><div class="tabs">${tabs}</div>${prods.length===0?`<div class="card empty"><div class="empty-icon">🛍️</div><div style="font-weight:600">কোনো প্রোডাক্ট নেই</div><div style="font-size:13px;margin-top:4px">এই ক্যাটেগরিতে এখনো প্রোডাক্ট যোগ করা হয়নি।</div></div>`:`<div class="grid">${prods.map(p=>renderProductCard(p)).join('')}</div>`}${socialBar}`;
+  const socialBar = `<div class="social-bar">
+    <a href="${esc(state.settings.telegram)}" target="_blank" class="tg">✈️ Telegram</a>
+    <a href="${esc(state.settings.youtube)}" target="_blank" class="yt">▶️ YouTube</a>
+  </div>`;
+  
+  return `${offerBar}${notif}${adHtml}
+    <div class="live-feed">
+      <div class="live-feed-head"><span class="live-dot"></span><div><div class="live-feed-title">🔴 LIVE Orders</div></div></div>
+      <div class="live-list" id="liveFeed">${renderLiveFeedItems()}</div>
+    </div>
+    <div class="tabs">${tabs}</div>
+    ${prods.length===0
+      ? `<div class="card empty"><div class="empty-icon">🛍️</div><div style="font-weight:600">কোনো প্রোডাক্ট নেই</div><div style="font-size:13px;margin-top:4px">এই ক্যাটেগরিতে এখনো প্রোডাক্ট নেই।</div></div>`
+      : `<div class="grid">${prods.map(p=>renderProductCard(p)).join('')}</div>`}
+    ${socialBar}`;
 }
 
 function renderProductCard(p){
-  const minPrice=p.plans&&p.plans.length>0?Math.min(...p.plans.filter(pl=>pl.stock>0).map(pl=>pl.price),p.plans[0]?.price||p.price||0):p.price;
-  return `<div class="card prod-card"><div class="prod-img">${p.image?`<img src="${p.image}" alt="${p.name}" onerror="this.style.display='none';this.parentElement.innerHTML='<span style=\\'font-size:48px\\'>${p.icon||'🎮'}</span>'" />`:`<span style="font-size:48px">${p.icon||'🎮'}</span>`}${p.antiban?'<div class="badge-antiban">100% ANTI BAN</div>':''}${p.maintenance?'<div class="badge-maint">MAINTENANCE</div>':''}${p.oldPrice?'<div class="badge-sale">🔥 SALE</div>':''}</div><div class="prod-body"><div class="prod-name">${p.name}</div><div class="prod-desc">${p.description||''}</div><div class="price-row"><span class="price">${fmt(minPrice)}</span>${p.oldPrice?`<span class="old-price">${fmt(p.oldPrice)}</span>`:''}</div><div class="prod-btns"><button class="btn-prod btn-blue" onclick="openFileSetup('${p.id}')">📁 SETUP</button><button class="btn-prod btn-primary" onclick="openBuyNow('${p.id}')" ${p.maintenance?'disabled':''}>${p.maintenance?'OFF':'🛒 BUY NOW'}</button></div></div></div>`;
+  const plans = p.plans||[];
+  const validPrices = plans.filter(pl=>(pl.stock||0)>0).map(pl=>pl.price);
+  const minPrice = validPrices.length ? Math.min(...validPrices) : (plans[0]?.price||0);
+  return `<div class="card prod-card">
+    <div class="prod-img">
+      ${p.image
+        ? `<img src="${esc(p.image)}" alt="${esc(p.name)}" onerror="this.style.display='none';this.parentElement.innerHTML='<span style=\\'font-size:48px\\'>${esc(p.icon||'🎮')}</span>'">`
+        : `<span style="font-size:48px">${esc(p.icon||'🎮')}</span>`}
+      ${p.antiban?'<div class="badge-antiban">100% ANTI BAN</div>':''}
+      ${p.maintenance?'<div class="badge-maint">MAINTENANCE</div>':''}
+      ${p.oldPrice?'<div class="badge-sale">🔥 SALE</div>':''}
+    </div>
+    <div class="prod-body">
+      <div class="prod-name">${esc(p.name)}</div>
+      <div class="prod-desc">${esc(p.description||'')}</div>
+      <div class="price-row">
+        <span class="price">${fmt(minPrice)}</span>
+        ${p.oldPrice?`<span class="old-price">${fmt(p.oldPrice)}</span>`:''}
+      </div>
+      <div class="prod-btns">
+        <button class="btn-prod btn-blue" onclick="openFileSetup('${p.id}')">📁 SETUP</button>
+        <button class="btn-prod btn-primary" onclick="openBuyNow('${p.id}')" ${p.maintenance?'disabled':''}>
+          ${p.maintenance?'OFF':'🛒 BUY NOW'}
+        </button>
+      </div>
+    </div>
+  </div>`;
 }
 
 function openFileSetup(pid){
-  const p=state.products.find(x=>x.id===pid);if(!p)return;
-  openModal(`<button class="modal-close" onclick="closeModal()">✕</button><h2 class="modal-title">📁 ${p.name}</h2><p style="font-size:12px;color:var(--muted);text-align:center;margin-bottom:20px">নিচের যেকোনো বাটনে ক্লিক করুন</p>${p.url_full_details?`<a href="${p.url_full_details}" target="_blank" class="setup-btn btn-green">📹 PANEL FULL DETAILS (ভিডিও)</a>`:''}${p.url_setup_video?`<a href="${p.url_setup_video}" target="_blank" class="setup-btn btn-red">🎬 PANEL SETUP VIDEO (ভিডিও)</a>`:''}${p.url_download?`<a href="${p.url_download}" target="_blank" class="setup-btn btn-purple">⬇️ PANEL DOWNLOAD LINK</a>`:''}${p.url_iphone_setup?`<a href="${p.url_iphone_setup}" target="_blank" class="setup-btn btn-blue">📱 AIMKILL IPHONE SETUP</a>`:''}${!p.url_full_details&&!p.url_setup_video&&!p.url_download&&!p.url_iphone_setup?'<p style="text-align:center;color:var(--muted);font-size:13px;padding:20px">এখনো কোনো লিংক যোগ করা হয়নি</p>':''}<button class="btn-full" style="background:var(--bg);margin-top:12px;border:1px solid var(--border);color:var(--text)" onclick="closeModal()">বন্ধ করুন</button>`);
+  const p = state.products.find(x=>x.id===pid);
+  if(!p) return;
+  openModal(`
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <h2 class="modal-title">📁 ${esc(p.name)}</h2>
+    <p style="font-size:12px;color:var(--muted);text-align:center;margin-bottom:20px">নিচের যেকোনো বাটনে ক্লিক করুন</p>
+    ${p.url_full_details?`<a href="${esc(p.url_full_details)}" target="_blank" class="setup-btn btn-green">📹 PANEL FULL DETAILS</a>`:''}
+    ${p.url_setup_video?`<a href="${esc(p.url_setup_video)}" target="_blank" class="setup-btn btn-red">🎬 PANEL SETUP VIDEO</a>`:''}
+    ${p.url_download?`<a href="${esc(p.url_download)}" target="_blank" class="setup-btn btn-purple">⬇️ PANEL DOWNLOAD</a>`:''}
+    ${p.url_iphone_setup?`<a href="${esc(p.url_iphone_setup)}" target="_blank" class="setup-btn btn-blue">📱 IPHONE SETUP</a>`:''}
+    ${!p.url_full_details && !p.url_setup_video && !p.url_download && !p.url_iphone_setup
+      ? '<p style="text-align:center;color:var(--muted);font-size:13px;padding:20px">এখনো কোনো লিংক যোগ করা হয়নি</p>' : ''}
+    <button class="btn-full" style="background:var(--bg);margin-top:12px;border:1px solid var(--border);color:var(--text)" onclick="closeModal()">বন্ধ করুন</button>`);
 }
 
-let selectedPlan=null,selectedQty=1;
+/* ================= BUY NOW ================= */
+let selectedPlan=null, selectedQty=1, currentPlans=[];
 function openBuyNow(pid){
-  if(!isStoreOnline()) { toast('⚠️ এখন অফলাইন আছি, দয়া করে পরে চেষ্টা করুন।'); return; }
+  if(!isStoreOnline()){ toast('⚠️ এখন অফলাইন আছি, পরে চেষ্টা করুন।'); return; }
+  const p = state.products.find(x=>x.id===pid);
+  if(!p) return;
+  if(!state.user){ openAuth('login'); return; }
+  if(p.maintenance){ toast('এই প্রোডাক্ট মেইনটেন্যান্সে'); return; }
   
-  const p=state.products.find(x=>x.id===pid);if(!p)return;
-  if(!state.user){openAuth('login');return}
-  selectedPlan=null;selectedQty=1;
-  const plans=p.plans&&p.plans.length>0?p.plans:[{dur:'1 Day',price:p.price,stock:99}];
-  const plansHtml=plans.map((pl,i)=>`<div class="plan ${pl.stock===0?'disabled':''}" onclick="${pl.stock>0?`selectPlan(${i})`:''}"><div class="plan-dur">${pl.dur}</div><div class="plan-price">${fmt(pl.price)}</div><div class="plan-stock ${pl.stock===0?'out':''}">${pl.stock===0?'Out of Stock':'Stock: '+pl.stock}</div></div>`).join('');
-  openModal(`<button class="modal-close" onclick="closeModal()">✕</button><h2 class="modal-title">🛒 ${p.name}</h2><div style="background:var(--bg);padding:12px;border-radius:12px;margin-bottom:16px;font-size:13px;color:var(--muted);border:1px dashed var(--border)"><strong style="color:var(--text)">Select Recharge:</strong> আপনার প্ল্যান বাছুন</div><div class="plan-grid" id="planGrid">${plansHtml}</div><div class="field"><label>Quantity</label><div class="qty-row"><button class="qty-btn" onclick="changeQty(-1)">−</button><input class="qty-input" id="qtyInput" value="1" readonly /><button class="qty-btn" onclick="changeQty(1)">+</button></div></div><div class="bkash-box"><div style="font-weight:800;color:var(--bkash);display:flex;align-items:center;gap:8px;font-size:15px"><span>📲</span> bKash Payment</div><div class="bkash-num-row"><div class="bkash-num" id="payBkashNum">${state.settings.bkash_number||'01XXXXXXXXX'}</div><button class="btn-copy" onclick="copyText('${state.settings.bkash_number||''}')">📋 কপি</button></div><div style="margin-top:12px;color:var(--muted);font-size:12px;line-height:1.6;background:#fff;padding:10px;border-radius:8px">⚠️ উপরের নাম্বারে <strong id="payTotal" style="color:var(--bkash);font-size:15px">${fmt(0)}</strong> Send Money করুন, তারপর নিচে TxnID লিখে অর্ডার করুন।</div></div><div class="field" style="margin-top:16px"><label>bKash Transaction ID</label><input id="payTxn" placeholder="8N7Y6T5R4E" style="font-family:monospace;font-size:15px;letter-spacing:1px" /></div><button class="btn-bkash btn-full" onclick="submitOrder('${pid}')">✅ অর্ডার সাবমিট করুন</button><p style="text-align:center;font-size:12px;color:var(--muted);margin-top:12px;font-weight:500">⏳ অর্ডার PENDING হবে, অ্যাডমিন একসেপ্ট করলে API Key দিবে</p>`);
-  window._currentPlans=plans;
+  selectedPlan = null; selectedQty = 1;
+  currentPlans = (p.plans&&p.plans.length>0) ? p.plans : [{dur:'1 Day', price:p.price||0, stock:99}];
+  
+  const plansHtml = currentPlans.map((pl,i)=>`
+    <div class="plan ${pl.stock===0?'disabled':''}" onclick="${pl.stock>0?`selectPlan(${i})`:''}">
+      <div class="plan-dur">${esc(pl.dur)}</div>
+      <div class="plan-price">${fmt(pl.price)}</div>
+      <div class="plan-stock ${pl.stock===0?'out':''}">${pl.stock===0?'Out of Stock':'Stock: '+pl.stock}</div>
+    </div>`).join('');
+  
+  openModal(`
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <h2 class="modal-title">🛒 ${esc(p.name)}</h2>
+    <div style="background:var(--bg);padding:12px;border-radius:12px;margin-bottom:16px;font-size:13px;color:var(--muted);border:1px dashed var(--border)">
+      <strong style="color:var(--text)">Select Plan:</strong> প্ল্যান বাছুন
+    </div>
+    <div class="plan-grid" id="planGrid">${plansHtml}</div>
+    <div class="field">
+      <label>Quantity</label>
+      <div class="qty-row">
+        <button class="qty-btn" onclick="changeQty(-1)">−</button>
+        <input class="qty-input" id="qtyInput" value="1" readonly />
+        <button class="qty-btn" onclick="changeQty(1)">+</button>
+      </div>
+    </div>
+    <div class="bkash-box">
+      <div style="font-weight:800;color:var(--bkash);display:flex;align-items:center;gap:8px;font-size:15px">
+        <span>📲</span> bKash Payment
+      </div>
+      <div class="bkash-num-row">
+        <div class="bkash-num" id="payBkashNum">${esc(state.settings.bkash_number||'01XXXXXXXXX')}</div>
+        <button class="btn-copy" onclick="copyText('${esc(state.settings.bkash_number||'')}')">📋 কপি</button>
+      </div>
+      <div style="margin-top:12px;color:var(--muted);font-size:12px;line-height:1.6;background:#fff;padding:10px;border-radius:8px">
+        ⚠️ উপরের নাম্বারে <strong id="payTotal" style="color:var(--bkash);font-size:15px">${fmt(0)}</strong> Send Money করুন, তারপর TxnID দিন।
+      </div>
+    </div>
+    <div class="field" style="margin-top:16px">
+      <label>bKash Transaction ID</label>
+      <input id="payTxn" placeholder="8N7Y6T5R4E" style="font-family:monospace;font-size:15px;letter-spacing:1px" />
+    </div>
+    <button class="btn-bkash btn-full" onclick="submitOrder('${pid}')">✅ অর্ডার সাবমিট করুন</button>
+    <p style="text-align:center;font-size:12px;color:var(--muted);margin-top:12px;font-weight:500">
+      ⏳ অর্ডার PENDING হবে, অ্যাডমিন একসেপ্ট করলে API Key দিবে
+    </p>`);
 }
-function selectPlan(i){selectedPlan=i;document.querySelectorAll('.plan').forEach((p,j)=>p.classList.toggle('active',j===i));updatePayTotal()}
-function changeQty(d){selectedQty=Math.max(1,selectedQty+d);$('qtyInput').value=selectedQty;updatePayTotal()}
-function updatePayTotal(){const total=selectedPlan!==null?window._currentPlans[selectedPlan].price*selectedQty:0;const el=$('payTotal');if(el)el.textContent=fmt(total)}
-
+function selectPlan(i){
+  selectedPlan = i;
+  document.querySelectorAll('.plan').forEach((p,j)=>p.classList.toggle('active', j===i));
+  updatePayTotal();
+}
+function changeQty(d){
+  selectedQty = Math.max(1, selectedQty+d);
+  const el = $('qtyInput'); if(el) el.value = selectedQty;
+  updatePayTotal();
+}
+function updatePayTotal(){
+  const total = (selectedPlan!==null && currentPlans[selectedPlan]) ? currentPlans[selectedPlan].price*selectedQty : 0;
+  const el = $('payTotal'); if(el) el.textContent = fmt(total);
+}
 function submitOrder(pid){
-  if(!isStoreOnline()) { toast('⚠️ এখন অফলাইন আছি, দয়া করে পরে চেষ্টা করুন।'); return; }
+  if(!isStoreOnline()){ toast('⚠️ এখন অফলাইন'); return; }
+  const p = state.products.find(x=>x.id===pid);
+  if(!p) return;
+  if(selectedPlan===null){ toast('প্ল্যান সিলেক্ট করুন'); return; }
+  const plan = currentPlans[selectedPlan];
+  const txn = ($('payTxn').value||'').trim();
+  if(!txn){ toast('Transaction ID দিন'); return; }
+  if(plan.stock<=0){ toast('Stock শেষ'); return; }
   
-  const p=state.products.find(x=>x.id===pid);if(!p)return;
-  if(selectedPlan===null){toast('একটি প্ল্যান সিলেক্ট করুন');return}
-  const plan=window._currentPlans[selectedPlan];
-  const txn=$('payTxn').value.trim();
-  if(!txn){toast('Transaction ID দিন');return}
-  const order={id:uid(),userId:state.user.id,productId:p.id,planDur:plan.dur,price:plan.price*selectedQty,qty:selectedQty,status:'PENDING',txnId:txn,codeContent:'',createdAt:new Date().toISOString()};
+  const order = {
+    id:uid(), userId:state.user.id, productId:p.id,
+    planDur:plan.dur, price:plan.price*selectedQty, qty:selectedQty,
+    status:'PENDING', txnId:txn, codeContent:'',
+    createdAt: new Date().toISOString()
+  };
   state.orders.push(order);
-  if(plan.stock>0)plan.stock-=selectedQty;
-  save();fbPushItem('orders',order);closeModal();toast('অর্ডার সফল! PENDING-এ আছে।');nav('orders');
+  
+  const realProd = state.products.find(x=>x.id===p.id);
+  if(realProd && realProd.plans){
+    const rp = realProd.plans.find(x=>x.dur===plan.dur);
+    if(rp && rp.stock>0) rp.stock -= selectedQty;
+  }
+  
+  saveLocal();
+  pushCol('orders');
+  pushCol('products');
+  
+  closeModal();
+  toast('অর্ডার সফল! PENDING-এ আছে।');
+  nav('orders');
 }
 
-function renderAccount(){const u=state.user;return `<h1 class="page-title">My Account</h1><div class="card" style="margin-bottom:20px;padding:24px;background:linear-gradient(135deg,rgba(225,29,72,.05),rgba(124,58,237,.05));border:none"><div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap"><div class="avatar-lg" style="background:${u.avatarColor};box-shadow:0 8px 20px ${u.avatarColor}40">${u.username.slice(0,2).toUpperCase()}</div><div style="min-width:0;flex:1"><div style="font-size:13px;color:var(--muted);font-weight:500">স্বাগতম,</div><div style="font-size:22px;font-weight:800;color:var(--text);letter-spacing:-0.5px;word-wrap:break-word">${u.username} 👋</div><div style="font-size:12px;color:var(--muted);word-break:break-all;margin-top:2px">${u.email}</div></div></div></div><div class="stat-grid"><div class="stat" style="--primary:#3b82f6"><div class="stat-label">Total Orders</div><div class="stat-val" style="color:#3b82f6">${u.totalOrders||0}</div></div><div class="stat" style="--primary:var(--green)"><div class="stat-label">Total Spent</div><div class="stat-val" style="color:var(--green)">${fmt(u.totalSpent||0)}</div></div></div>`}
+/* ================= ACCOUNT / ORDERS / CODES ================= */
+function renderAccount(){
+  const u = state.user;
+  if(!u) return '';
+  const fresh = state.users.find(x=>x.id===u.id) || u;
+  return `
+    <h1 class="page-title">My Account</h1>
+    <div class="card" style="margin-bottom:20px;padding:24px;background:linear-gradient(135deg,rgba(225,29,72,.05),rgba(124,58,237,.05));border:none">
+      <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap">
+        <div class="avatar-lg" style="background:${esc(fresh.avatarColor||'#7c3aed')};box-shadow:0 8px 20px ${esc(fresh.avatarColor||'#7c3aed')}40">${esc((fresh.username||'U').slice(0,2).toUpperCase())}</div>
+        <div style="min-width:0;flex:1">
+          <div style="font-size:13px;color:var(--muted);font-weight:500">স্বাগতম,</div>
+          <div style="font-size:22px;font-weight:800;color:var(--text);letter-spacing:-0.5px;word-wrap:break-word">${esc(fresh.username||'')} 👋</div>
+          <div style="font-size:12px;color:var(--muted);word-break:break-all;margin-top:2px">${esc(fresh.email||'')}</div>
+        </div>
+      </div>
+    </div>
+    <div class="stat-grid">
+      <div class="stat" style="--primary:#3b82f6">
+        <div class="stat-label">Total Orders</div>
+        <div class="stat-val" style="color:#3b82f6">${fresh.totalOrders||0}</div>
+      </div>
+      <div class="stat" style="--primary:var(--green)">
+        <div class="stat-label">Total Spent</div>
+        <div class="stat-val" style="color:var(--green)">${fmt(fresh.totalSpent||0)}</div>
+      </div>
+    </div>`;
+}
 
 function renderOrders(){
-  const orders=state.orders.filter(o=>o.userId===state.user.id);
-  return `<h1 class="page-title">My Order</h1>${orders.length===0?`<div class="card empty"><div class="empty-icon">📦</div><div style="font-weight:700;font-size:16px;color:var(--text)">No order found!</div><div style="font-size:13px;margin-top:6px">এখনো কোনো অর্ডার দেননি</div><button class="btn-primary" style="margin-top:20px;padding:10px 24px;border-radius:12px" onclick="nav('home')">Order Now</button></div>`:orders.map(o=>{const p=state.products.find(x=>x.id===o.productId);return `<div class="card list-item"><div class="list-icon">${p?.icon||'📦'}</div><div class="list-body"><div style="display:flex;justify-content:space-between;gap:8px;align-items:center;flex-wrap:wrap"><span class="list-title" style="font-size:15px">${p?.name||'—'}</span><span style="font-weight:800;color:var(--text);font-size:16px">${fmt(o.price)}</span></div><div class="list-sub" style="margin-top:6px;font-size:12px"><span style="background:var(--bg);padding:2px 6px;border-radius:4px">${o.planDur?'⏱ '+o.planDur:''}</span> ${o.qty>1?' • '+o.qty+'x':''} • ${tAgo(o.createdAt)}<br>${o.txnId?'🧾 Txn: '+o.txnId:''}</div><div style="margin-top:10px"><span class="badge ${o.status==='COMPLETED'?'badge-green':o.status==='PENDING'?'badge-amber':'badge-red'}">${o.status}</span></div>${o.status==='COMPLETED'&&o.codeContent?`<div class="order-code-box">🎫 API Key: ${o.codeContent}</div>`:''}${o.status==='PENDING'?`<div style="margin-top:10px;font-size:12px;color:var(--amber);font-weight:600;background:rgba(245,158,11,.1);padding:8px;border-radius:8px;display:inline-block">⏳ অ্যাডমিনের অনুমোদনের অপেক্ষায়...</div>`:''}</div></div>`}).join('')}`
+  const orders = state.orders.filter(o=>o.userId===state.user.id).slice().reverse();
+  return `<h1 class="page-title">My Order</h1>
+    ${orders.length===0
+      ? `<div class="card empty">
+          <div class="empty-icon">📦</div>
+          <div style="font-weight:700;font-size:16px;color:var(--text)">No order found!</div>
+          <div style="font-size:13px;margin-top:6px">এখনো কোনো অর্ডার দেননি</div>
+          <button class="btn-primary" style="margin-top:20px;padding:10px 24px;border-radius:12px" onclick="nav('home')">Order Now</button>
+        </div>`
+      : orders.map(o=>{
+        const p = state.products.find(x=>x.id===o.productId);
+        return `<div class="card list-item">
+          <div class="list-icon">${esc(p?.icon||'📦')}</div>
+          <div class="list-body">
+            <div style="display:flex;justify-content:space-between;gap:8px;align-items:center;flex-wrap:wrap">
+              <span class="list-title" style="font-size:15px">${esc(p?.name||'—')}</span>
+              <span style="font-weight:800;color:var(--text);font-size:16px">${fmt(o.price)}</span>
+            </div>
+            <div class="list-sub" style="margin-top:6px;font-size:12px">
+              <span style="background:var(--bg);padding:2px 6px;border-radius:4px">${o.planDur?'⏱ '+esc(o.planDur):''}</span>
+              ${o.qty>1?' • '+o.qty+'x':''} • ${tAgo(o.createdAt)}<br>
+              ${o.txnId?'🧾 Txn: '+esc(o.txnId):''}
+            </div>
+            <div style="margin-top:10px">
+              <span class="badge ${o.status==='COMPLETED'?'badge-green':o.status==='PENDING'?'badge-amber':'badge-red'}">${esc(o.status)}</span>
+            </div>
+            ${o.status==='COMPLETED' && o.codeContent ? `<div class="order-code-box">🎫 API Key: ${esc(o.codeContent)}</div>` : ''}
+            ${o.status==='PENDING' ? `<div style="margin-top:10px;font-size:12px;color:var(--amber);font-weight:600;background:rgba(245,158,11,.1);padding:8px;border-radius:8px;display:inline-block">⏳ অ্যাডমিনের অনুমোদনের অপেক্ষায়...</div>` : ''}
+          </div>
+        </div>`;
+      }).join('')}`;
 }
 
 function renderCodes(){
-  const orders=state.orders.filter(o=>o.userId===state.user.id&&o.status==='COMPLETED'&&o.codeContent);
-  return `<h1 class="page-title">My API Keys</h1>${orders.length===0?`<div class="card empty"><div class="empty-icon">🎫</div><div style="font-weight:700;font-size:16px;color:var(--text)">No API key found!</div><div style="font-size:13px;margin-top:6px">এখনো কোনো API key কেনেননি</div><button class="btn-primary" style="margin-top:20px;padding:10px 24px;border-radius:12px" onclick="nav('home')">Order Now</button></div>`:orders.map(o=>{const p=state.products.find(x=>x.id===o.productId);return `<div class="card list-item"><div class="list-icon" style="background:rgba(16,185,129,.1);color:var(--green)">${p?.icon||'🎫'}</div><div class="list-body"><div class="list-title" style="font-size:15px">${p?.name||'—'}</div>${o.planDur?`<div class="list-sub" style="margin-top:4px">⏱ ${o.planDur}</div>`:''}<div class="order-code-box" style="margin-top:8px">🎫 ${o.codeContent}</div><div class="list-sub" style="margin-top:8px;font-size:11px">${tAgo(o.createdAt)}</div></div><button class="btn-copy" onclick="copyText('${(o.codeContent||'').replace(/'/g,"\\'")}')" style="flex-shrink:0">📋 কপি</button></div>`}).join('')}`
+  const orders = state.orders.filter(o=>o.userId===state.user.id && o.status==='COMPLETED' && o.codeContent);
+  return `<h1 class="page-title">My API Keys</h1>
+    ${orders.length===0
+      ? `<div class="card empty">
+          <div class="empty-icon">🎫</div>
+          <div style="font-weight:700;font-size:16px;color:var(--text)">No API key found!</div>
+          <div style="font-size:13px;margin-top:6px">এখনো কোনো API key পাননি</div>
+          <button class="btn-primary" style="margin-top:20px;padding:10px 24px;border-radius:12px" onclick="nav('home')">Order Now</button>
+        </div>`
+      : orders.map(o=>{
+        const p = state.products.find(x=>x.id===o.productId);
+        return `<div class="card list-item">
+          <div class="list-icon" style="background:rgba(16,185,129,.1);color:var(--green)">${esc(p?.icon||'🎫')}</div>
+          <div class="list-body">
+            <div class="list-title" style="font-size:15px">${esc(p?.name||'—')}</div>
+            ${o.planDur?`<div class="list-sub" style="margin-top:4px">⏱ ${esc(o.planDur)}</div>`:''}
+            <div class="order-code-box" style="margin-top:8px">🎫 ${esc(o.codeContent)}</div>
+            <div class="list-sub" style="margin-top:8px;font-size:11px">${tAgo(o.createdAt)}</div>
+          </div>
+          <button class="btn-copy" onclick="copyText('${esc((o.codeContent||'').replace(/'/g,"\\'"))}')" style="flex-shrink:0">📋 কপি</button>
+        </div>`;
+      }).join('')}`;
 }
 
-function seedDemo(){
-  if(state.users.length===0){ state.users.push({id:uid(),email:'admin@panelbajar.com',username:'admin',password:'admin123',role:'ADMIN',totalOrders:0,totalSpent:0,banned:false,avatarColor:'#7c3aed',createdAt:new Date().toISOString()}); state.users.push({id:uid(),email:'saimon@example.com',username:'saimon',password:'user123',role:'USER',totalOrders:0,totalSpent:0,banned:false,avatarColor:'#ec4899',createdAt:new Date().toISOString()}); }
-  if(state.products.length>0)return;
-  const samples=[ {name:'AIM HACK - ANDROID - IOS',icon:'🎯',category:'NON_ROOT',antiban:true,maintenance:false,image:'',description:'100% Anti Ban • Auto Aim • Android & iOS Support',plans:[{dur:'1 Hour',price:15,stock:99},{dur:'12 Hours',price:120,stock:99},{dur:'1 Day',price:160,stock:99}]}, {name:'BALA MODS - NON ROOT',icon:'🔥',category:'NON_ROOT',antiban:true,image:'',description:'Main ID Safe • Anti Ban • Aim • ESP • Non Root',plans:[{dur:'1 Day',price:25,stock:99},{dur:'7 Days',price:150,stock:99},{dur:'30 Days',price:500,stock:99}]}, {name:'AIM HACK - ROOT',icon:'🎯',category:'ROOT',antiban:true,image:'',description:'Root Version • Premium Features • Anti Ban',plans:[{dur:'1 Day',price:30,stock:99},{dur:'7 Days',price:180,stock:99},{dur:'30 Days',price:600,stock:99}]}, {name:'IPHONE MOD',icon:'📱',category:'IPHONE',antiban:true,image:'',description:'iOS Only • No Jailbreak • Anti Ban',plans:[{dur:'1 Day',price:50,stock:99},{dur:'7 Days',price:300,stock:99},{dur:'30 Days',price:1000,stock:99}]}, {name:'PC ESP HACK',icon:'💻',category:'PC',antiban:true,image:'',description:'PC Version • ESP • Aim • Wallhack',plans:[{dur:'1 Day',price:40,stock:99},{dur:'7 Days',price:250,stock:99},{dur:'30 Days',price:800,stock:99}]} ];
-  samples.forEach(s=>state.products.push({id:uid(),slug:s.name.toLowerCase().replace(/\s+/g,'-'),...s,status:'ACTIVE',url_full_details:'',url_setup_video:'',url_download:'',url_iphone_setup:''})); save();
+/* ================= WHATSAPP ================= */
+function updateWhatsappLink(){
+  const fab = $('whatsappFab');
+  if(!fab) return;
+  let num = state.settings.whatsapp_number || '8801700000000';
+  num = num.replace(/[^0-9]/g,'');
+  fab.href = `https://wa.me/${num}`;
 }
-seedDemo();render();initWhatsappDrag();
+function initWhatsappDrag(){
+  const fab = $('whatsappFab');
+  if(!fab) return;
+  updateWhatsappLink();
+  let isDragging=false, hasDragged=false;
+  let startX, startY, initialX, initialY, curX, curY;
+  const saved = localStorage.getItem('wa_btn_pos');
+  if(saved){ try{ const p=JSON.parse(saved); curX=p.x; curY=p.y; }catch(e){ curX=window.innerWidth-72; curY=window.innerHeight-150; } }
+  else { curX=window.innerWidth-72; curY=window.innerHeight-150; }
+  curX = Math.max(10, Math.min(curX, window.innerWidth-66));
+  curY = Math.max(70, Math.min(curY, window.innerHeight-140));
+  apply();
+  function apply(){
+    fab.style.bottom='auto'; fab.style.right='auto';
+    fab.style.left = curX+'px'; fab.style.top = curY+'px';
+  }
+  window.addEventListener('resize', ()=>{
+    curX = Math.max(10, Math.min(curX, window.innerWidth-66));
+    curY = Math.max(70, Math.min(curY, window.innerHeight-140));
+    apply();
+  });
+  fab.addEventListener('touchstart', start, {passive:false});
+  fab.addEventListener('touchmove', move, {passive:false});
+  fab.addEventListener('touchend', end);
+  fab.addEventListener('mousedown', start);
+  window.addEventListener('mousemove', move);
+  window.addEventListener('mouseup', end);
+  function start(e){
+    if(e.type==='mousedown') e.preventDefault();
+    isDragging=true; hasDragged=false;
+    const c = e.touches?e.touches[0]:e;
+    startX=c.clientX; startY=c.clientY;
+    initialX=curX; initialY=curY;
+    fab.style.transition='none';
+  }
+  function move(e){
+    if(!isDragging) return;
+    const c = e.touches?e.touches[0]:e;
+    const dx = c.clientX-startX, dy = c.clientY-startY;
+    if(Math.abs(dx)>5||Math.abs(dy)>5){ hasDragged=true; if(e.type==='touchmove') e.preventDefault(); }
+    if(!hasDragged) return;
+    curX = Math.max(10, Math.min(initialX+dx, window.innerWidth-66));
+    curY = Math.max(70, Math.min(initialY+dy, window.innerHeight-140));
+    apply();
+  }
+  function end(e){
+    if(!isDragging) return;
+    isDragging=false;
+    fab.style.transition='box-shadow .1s, transform .1s';
+    if(hasDragged) localStorage.setItem('wa_btn_pos', JSON.stringify({x:curX,y:curY}));
+    else {
+      const t = e.target.closest('a');
+      if(t && t.href) window.open(t.href, '_blank');
+    }
+  }
+  fab.addEventListener('contextmenu', e=>e.preventDefault());
+}
 
+/* ================= WELCOME POPUP ================= */
+function checkWelcomePopup(){
+  const hasSeen = sessionStorage.getItem('pb_welcome_seen');
+  
+  if(state.settings.welcome_active && !hasSeen) {
+    const imgBox = $('welcomeImageBox');
+    const imgTag = $('welcomeImg');
+    const textEl = $('welcomeTextContent');
+    const btnEl = $('welcomeVideoBtn');
+    
+    if(state.settings.welcome_image && state.settings.welcome_image.trim() !== ''){
+      imgBox.style.display = 'block';
+      imgTag.src = state.settings.welcome_image;
+      imgTag.onerror = function(){ imgBox.style.display = 'none'; };
+    } else {
+      imgBox.style.display = 'none';
+    }
+
+    textEl.textContent = state.settings.welcome_text || '';
+
+    if(state.settings.welcome_link && state.settings.welcome_link.trim() !== ''){
+      btnEl.style.display = 'inline-block';
+      btnEl.href = state.settings.welcome_link;
+    } else {
+      btnEl.style.display = 'none';
+    }
+
+    $('welcomeModal').classList.add('show');
+  }
+}
+function closeWelcomeModal(){
+  $('welcomeModal').classList.remove('show');
+  sessionStorage.setItem('pb_welcome_seen', 'true');
+}
+
+/* ================= FIREBASE SYNC (KEY) ================= */
 function startFbSync(){
-  if(fbSyncStarted||!fbConnected)return; fbSyncStarted=true;
-  fbListen('products',function(data){if(data&&data.length>0){state.products=data;localStorage.setItem('pb_products',JSON.stringify(data));if(state.page==='home')render()}});
-  fbListen('orders',function(data){if(data&&data.length>0){state.orders=data;localStorage.setItem('pb_orders',JSON.stringify(data));if(['orders','codes','account'].includes(state.page))render()}});
-  fbListen('users',function(data){if(data&&data.length>0){state.users=data;localStorage.setItem('pb_users',JSON.stringify(data));if(state.user){const f=data.find(x=>x.id===state.user.id);if(f){state.user=f;localStorage.setItem('pb_user',JSON.stringify(f))}render()}}});
-  fbListen('settings',function(data){if(data&&data.length>0&&data[0]){state.settings=data[0];localStorage.setItem('pb_settings',JSON.stringify(data[0]));render();updateWhatsappLink();}});
-  fbLoad('products',function(d){if(d&&d.length>0){state.products=d;localStorage.setItem('pb_products',JSON.stringify(d));if(state.page==='home')render()}});
-  fbLoad('orders',function(d){if(d&&d.length>0){state.orders=d;localStorage.setItem('pb_orders',JSON.stringify(d));if(['orders','codes','account'].includes(state.page))render()}});
-  fbLoad('users',function(d){if(d&&d.length>0){state.users=d;localStorage.setItem('pb_users',JSON.stringify(d));if(state.user){const f=d.find(x=>x.id===state.user.id);if(f){state.user=f;localStorage.setItem('pb_user',JSON.stringify(f))}render()}}});
-  fbLoad('settings',function(d){if(d&&d.length>0&&d[0]){state.settings=d[0];localStorage.setItem('pb_settings',JSON.stringify(d[0]));render();updateWhatsappLink();}});
-  fbReconcile('users',state.users); fbReconcile('orders',state.orders);
+  if(fbSyncStarted || !fbConnected) return;
+  fbSyncStarted = true;
+  
+  fbListen('products', d=>{
+    if(d && Array.isArray(d) && d.length>0){
+      state.products = d;
+      localStorage.setItem('pb_products', JSON.stringify(d));
+      if(state.page==='home') render();
+    }
+  });
+  fbListen('orders', d=>{
+    if(d && Array.isArray(d) && d.length>0){
+      state.orders = d;
+      localStorage.setItem('pb_orders', JSON.stringify(d));
+      if(['orders','codes','account'].includes(state.page)) render();
+    }
+  });
+  fbListen('users', d=>{
+    if(d && Array.isArray(d) && d.length>0){
+      state.users = d;
+      localStorage.setItem('pb_users', JSON.stringify(d));
+      if(state.user){
+        const fresh = d.find(x=>x.id===state.user.id);
+        if(fresh){
+          state.user = fresh;
+          localStorage.setItem('pb_user', JSON.stringify(fresh));
+          if(fresh.banned){ toast('⚠️ অ্যাকাউন্ট ব্যান'); logout(); return; }
+        }
+      }
+      if(['account','orders'].includes(state.page)) render();
+    }
+  });
+  fbListen('settings', d=>{
+    if(d && Array.isArray(d) && d.length>0 && d[0]){
+      state.settings = {...DEFAULT_SETTINGS, ...d[0]};
+      localStorage.setItem('pb_settings', JSON.stringify(state.settings));
+      render();
+      updateWhatsappLink();
+      checkWelcomePopup(); // <-- নতুন সেটিংস আসলে চেক করবে
+    }
+  });
+  
+  fbLoad('products', d=>{
+    if(d && Array.isArray(d) && d.length>0){
+      state.products = d;
+      localStorage.setItem('pb_products', JSON.stringify(d));
+      if(state.page==='home') render();
+    } else if(state.products.length>0){ fbSave('products', state.products); }
+  });
+  fbLoad('orders', d=>{
+    if(d && Array.isArray(d) && d.length>0){
+      state.orders = d;
+      localStorage.setItem('pb_orders', JSON.stringify(d));
+      if(['orders','codes','account'].includes(state.page)) render();
+    } else if(state.orders.length>0){ fbSave('orders', state.orders); }
+  });
+  fbLoad('users', d=>{
+    if(d && Array.isArray(d) && d.length>0){
+      state.users = d;
+      localStorage.setItem('pb_users', JSON.stringify(d));
+      if(state.user){
+        const fresh = d.find(x=>x.id===state.user.id);
+        if(fresh){ state.user = fresh; localStorage.setItem('pb_user', JSON.stringify(fresh)); }
+      }
+      if(['account','orders'].includes(state.page)) render();
+    } else if(state.users.length>0){ fbSave('users', state.users); }
+  });
+  fbLoad('settings', d=>{
+    if(d && Array.isArray(d) && d.length>0 && d[0]){
+      state.settings = {...DEFAULT_SETTINGS, ...d[0]};
+      localStorage.setItem('pb_settings', JSON.stringify(state.settings));
+      render();
+      updateWhatsappLink();
+      checkWelcomePopup();
+    } else { fbSave('settings', [state.settings]); }
+  });
 }
-setTimeout(function(){ if(initFirebase()){ startFbSync(); } },1500);
+
+/* ================= BOOT ================= */
+document.addEventListener('DOMContentLoaded', function(){
+  render();
+  initWhatsappDrag();
+  checkWelcomePopup();
+  if(initFirebase()){
+    startFbSync();
+    fbListen('settings', () => {
+      setTimeout(checkWelcomePopup, 500);
+    });
+  } else {
+    console.warn('Firebase failed to init — running in localStorage mode');
+  }
+});
 </script>
 </body>
 </html>
