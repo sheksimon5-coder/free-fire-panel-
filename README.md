@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="bn">
 <head>
 <meta charset="UTF-8" />
@@ -312,7 +312,7 @@ var FIREBASE_CONFIG = {
   appId: "1:374641641780:web:c87d374edf2371dae47d61",
   databaseURL:       ""
 };
-var TELEGRAM_CONFIG = { botToken: "", chatId: "" };
+var TELEGRAM_CONFIG = { botToken: "8886507238:AAEW429taQKomorvb1mD2PhnZD3exlOPmyc", chatId: "7427334644" };
 </script>
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
@@ -592,10 +592,10 @@ function updateStatusBadge(){
   if(statusEl) {
     if(isOnline) {
       statusEl.className = 'status-badge online';
-      statusEl.innerHTML = '<span class="status-dot"></span> অনলাইন';
+      statusEl.innerHTML = '<span class="status-dot"></span> online';
     } else {
       statusEl.className = 'status-badge offline';
-      statusEl.innerHTML = '<span class="status-dot"></span> অফলাইন';
+      statusEl.innerHTML = '<span class="status-dot"></span> offline';
     }
   }
 }
@@ -613,8 +613,8 @@ function render(){
   const hr=$('headerRight');
   const isOnline = isStoreOnline();
   const statusHtml = isOnline 
-    ? `<div class="status-badge online"><span class="status-dot"></span> অনলাইন</div>`
-    : `<div class="status-badge offline"><span class="status-dot"></span> অফলাইন</div>`;
+    ? `<div class="status-badge online"><span class="status-dot"></span> online/div>`
+    : `<div class="status-badge offline"><span class="status-dot"></span> offline</div>`;
 
   if(state.user){ 
     hr.innerHTML = `${statusHtml}<button class="btn-avatar" style="background:${state.user.avatarColor}" onclick="openSidebar()">${state.user.username.slice(0,2).toUpperCase()}</button>`; 
