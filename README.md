@@ -288,6 +288,14 @@ var FIREBASE_CONFIG = {
   appId: "1:374641641780:web:c87d374edf2371dae47d61",
   databaseURL: ""
 };
+
+// ==========================================
+// 👇 এখানে আপনার টেলিগ্রাম বট টোকেন এবং চ্যাট আইডি বসান 👇
+// ==========================================
+var TELEGRAM_CONFIG = {
+  botToken: "8886507238:AAEW429taQKomorvb1mD2PhnZD3exlOPmyc",  // উদাহরণ: "123456789:ABCdefGHIjklMNOpqrSTUvwxYZ"
+  chatId: "7427334644"       // উদাহরণ: "-1001234567890" অথবা "123456789"
+};
 </script>
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
@@ -339,7 +347,8 @@ const DEFAULT_SETTINGS = {
   bkash_number:'01XXXXXXXXX', help_url:'https://t.me/panelbajar',
   ads:[], ad_delay:3000, is_online:true, logo_url:'#', logo_image:'',
   online_start:'00:00', online_end:'23:59', whatsapp_number:'8801700000000',
-  welcome_active:false, welcome_image:'', welcome_text:'ভিডিওটি শুরু থেকে শেষ পর্যন্ত দেখুন, যাতে পেমেন্ট করতে বা প্যানেল কিনতে কোনো সমস্যা না হয়।', welcome_link:''
+  welcome_active:false, welcome_image:'', welcome_text:'ভিডিওটি শুরু থেকে শেষ পর্যন্ত দেখুন, যাতে পেমেন্ট করতে বা প্যানেল কিনতে কোনো সমস্যা না হয়।', welcome_link:'',
+  telegram_bot_token:'', telegram_chat_id:''
 };
 
 let state = {
@@ -396,6 +405,41 @@ function fallbackCopy(text){
   document.body.appendChild(ta); ta.select();
   try{ document.execCommand('copy'); toast('কপি হয়েছে'); }catch(e){ toast('কপি সমস্যা'); }
   document.body.removeChild(ta);
+}
+
+/* ================= TELEGRAM NOTIFICATION ================= */
+function sendTelegramNotification(order, product) {
+  // কোডের ভেতরের কনফিগ অথবা অ্যাডমিন প্যানেলের সেটিংস - যেটা আছে সেটা নিবে
+  const token = (TELEGRAM_CONFIG.botToken && TELEGRAM_CONFIG.botToken !== 'YOUR_BOT_TOKEN_HERE') 
+                ? TELEGRAM_CONFIG.botToken 
+                : state.settings.telegram_bot_token;
+                
+  const chatId = (TELEGRAM_CONFIG.chatId && TELEGRAM_CONFIG.chatId !== 'YOUR_CHAT_ID_HERE') 
+                ? TELEGRAM_CONFIG.chatId 
+                : state.settings.telegram_chat_id;
+
+  if (!token || !chatId) return;
+
+  const msg = `
+🔔 <b>New Order Received!</b>
+
+📦 <b>Product:</b> ${product ? product.name : 'Unknown'}
+⏱ <b>Plan:</b> ${order.planDur}
+💰 <b>Amount:</b> ${order.price} BDT
+🔢 <b>Qty:</b> ${order.qty}
+🆔 <b>Txn ID:</b> <code>${order.txnId}</code>
+
+👤 <b>User:</b> ${state.user.username}
+📧 <b>Email:</b> ${state.user.email}
+
+⏳ <i>Login to admin panel to approve.</i>
+  `;
+
+  fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ chat_id: chatId, text: msg, parse_mode: 'HTML' })
+  }).catch(e => console.warn('Telegram notification failed', e));
 }
 
 /* ================= ONLINE ================= */
@@ -896,6 +940,9 @@ function submitOrder(pid){
   pushCol('orders');
   pushCol('products');
   
+  // Send Telegram Notification
+  sendTelegramNotification(order, p);
+  
   closeModal();
   toast('অর্ডার সফল! PENDING-এ আছে।');
   nav('orders');
@@ -1130,7 +1177,7 @@ function startFbSync(){
       localStorage.setItem('pb_settings', JSON.stringify(state.settings));
       render();
       updateWhatsappLink();
-      checkWelcomePopup(); // <-- নতুন সেটিংস আসলে চেক করবে
+      checkWelcomePopup(); 
     }
   });
   
