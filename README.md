@@ -304,12 +304,12 @@ nav.botnav{position:fixed;bottom:0;left:0;right:0;z-index:30;background:rgba(255
 
 <script>
 var FIREBASE_CONFIG = {
-  apiKey: "AIzaSyC4rtb4f8GP4i2WCyB8T_rqnmkUPNhKs_Q",
-  authDomain: "farmer-73a44.firebaseapp.com",
-  projectId: "farmer-73a44",
-  storageBucket: "farmer-73a44.firebasestorage.app",
-  messagingSenderId: "919992492785",
-  appId: "1:919992492785:web:49a831f26c58afcd95ff50",
+  apiKey: "AIzaSyDt3gU-2iubzCZ94XFAGZswUnzxuDgUvFQ",
+  authDomain: "free-fire-panel-611d6.firebaseapp.com",
+  projectId: "free-fire-panel-611d6",
+  storageBucket: "free-fire-panel-611d6.firebasestorage.app",
+  messagingSenderId: "374641641780",
+  appId: "1:374641641780:web:c87d374edf2371dae47d61",
   databaseURL:       ""
 };
 var TELEGRAM_CONFIG = { botToken: "", chatId: "" };
