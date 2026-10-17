@@ -53,18 +53,24 @@ main{padding:16px 0 90px;min-height:calc(100vh - 60px)}
 .btn-blue{background:linear-gradient(135deg,var(--blue),#1d4ed8);color:#fff;font-weight:700}
 .btn-bkash{background:linear-gradient(135deg,var(--bkash),#be185d);color:#fff;font-weight:700}
 
-/* ====== AD SLIDER (FADE + ZOOM ANIMATION) ====== */
-.ad-slider{margin-bottom:16px;border-radius:16px;overflow:hidden;position:relative;background:var(--card2);box-shadow:var(--shadow-md);aspect-ratio:16/7;border:1px solid var(--border)}
-.ad-slide{position:absolute;inset:0;opacity:0;transform:scale(1.06);transition:opacity .8s ease-in-out, transform .8s ease-in-out;display:flex;align-items:center;justify-content:center;pointer-events:none;will-change:opacity,transform;z-index:1}
-.ad-slide.active{opacity:1;transform:scale(1);z-index:2}
+/* ====== AD SLIDER (RUNNING CAROUSEL: SLIDE + KEN BURNS) ====== */
+.ad-slider{margin-bottom:16px;border-radius:16px;overflow:hidden;position:relative;background:var(--card2);box-shadow:var(--shadow-md);aspect-ratio:16/7;border:1px solid var(--border);touch-action:pan-y;cursor:grab;-webkit-user-select:none;user-select:none}
+.ad-slider.ad-dragging{cursor:grabbing}
+.ad-track{display:flex;height:100%;will-change:transform;transition:transform .65s cubic-bezier(.45,0,.2,1)}
+.ad-track.no-anim{transition:none}
+.ad-slide{flex:0 0 100%;width:100%;height:100%;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;pointer-events:none}
 .ad-slide img{width:100%;height:100%;object-fit:cover;display:block;will-change:transform;animation:adZoom 10s ease-in-out infinite}
 .ad-slide:nth-child(even) img{animation-name:adZoomAlt}
+.ad-slide:not(.active) img{animation-play-state:paused}
 @keyframes adZoom{0%{transform:scale(1) translate(0,0)}50%{transform:scale(1.15) translate(-2%,-1.2%)}100%{transform:scale(1) translate(0,0)}}
 @keyframes adZoomAlt{0%{transform:scale(1.14) translate(1.8%,1%)}50%{transform:scale(1) translate(0,0)}100%{transform:scale(1.14) translate(1.8%,1%)}}
 .ad-slide.ad-fallback-active::before{content:'🎮';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:56px;background:linear-gradient(135deg,#f8fafc,#f1f5f9);z-index:1}
 .ad-dots{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);display:flex;gap:6px;z-index:5}
-.ad-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.65);box-shadow:0 1px 3px rgba(0,0,0,.25);cursor:pointer;transition:all .3s;pointer-events:auto}
-.ad-dot.active{background:var(--primary);width:20px;border-radius:4px}
+.ad-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.65);box-shadow:0 1px 3px rgba(0,0,0,.25);cursor:pointer;transition:all .3s;pointer-events:auto;position:relative;overflow:hidden}
+.ad-dot.active{background:rgba(255,255,255,.45);width:22px;border-radius:4px}
+.ad-dot.active::after{content:'';position:absolute;left:0;top:0;bottom:0;width:100%;border-radius:4px;background:var(--primary);transform-origin:left;animation:adDotFill var(--ad-delay,3s) linear forwards}
+@keyframes adDotFill{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.ad-dots.static .ad-dot.active::after{display:none}
 
 .offer-bar{margin-bottom:14px;border-radius:12px;overflow:hidden;background:linear-gradient(90deg,#e11d48,#7c3aed,#e11d48);background-size:200% 100%;animation:offerGradient 4s linear infinite;box-shadow:0 4px 14px rgba(225,29,72,.25)}
 @keyframes offerGradient{0%{background-position:0% 50%}100%{background-position:200% 50%}}
@@ -551,35 +557,109 @@ function render(){
   updateWhatsappLink();
 }
 
-// ====== AD SLIDER (FADE + ZOOM + CONTINUOUS KEN BURNS) ======
+// ====== AD SLIDER (RUNNING CAROUSEL: SLIDE + KEN BURNS + SWIPE + PROGRESS DOTS) ======
 let adSliderInterval=null;
 let adCurrentIndex=0;
 let adSlides=[];
+let adTrackEl=null;
+let adDrag=null;
 
-function startAdSlider(){
+function adApplyTransform(anim){
+  if(!adTrackEl)return;
+  if(anim===false)adTrackEl.classList.add('no-anim');else adTrackEl.classList.remove('no-anim');
+  adTrackEl.style.transform='translateX(-'+(adCurrentIndex*100)+'%)';
+}
+
+function adRestartAutoplay(){
   if(adSliderInterval){clearInterval(adSliderInterval);adSliderInterval=null}
-  adSlides=document.querySelectorAll('.ad-slide');
-  if(adSlides.length===0)return;
-  
-  // ফিক্স: লগইন/রিলোড/সিঙ্কের পরেও স্লাইডার আগের ছবি থেকেই চলতে থাকবে, প্রথম স্লাইডে রিসেট হবে না
-  if(adCurrentIndex>=adSlides.length)adCurrentIndex=0;
-  adSlides.forEach((s,i)=>s.classList.toggle('active',i===adCurrentIndex));
-  document.querySelectorAll('.ad-dot').forEach((d,i)=>d.classList.toggle('active',i===adCurrentIndex));
-  
   if(adSlides.length<=1)return;
-  
   const delay=Math.max(1500,Number(state.settings.ad_delay)||3000);
   adSliderInterval=setInterval(function(){
     goToAdSlide((adCurrentIndex+1)%adSlides.length);
   },delay);
 }
 
+function startAdSlider(){
+  if(adSliderInterval){clearInterval(adSliderInterval);adSliderInterval=null}
+  adTrackEl=document.querySelector('#adSlider .ad-track');
+  adSlides=document.querySelectorAll('#adSlider .ad-slide');
+  if(adSlides.length===0||!adTrackEl)return;
+  
+  // ফিক্স: লগইন/রিলোড/সিঙ্কের পরেও স্লাইডার আগের ছবি থেকেই চলতে থাকবে, প্রথম স্লাইডে রিসেট হবে না
+  if(adCurrentIndex>=adSlides.length)adCurrentIndex=0;
+  adSlides.forEach((s,i)=>s.classList.toggle('active',i===adCurrentIndex));
+  adApplyTransform(false);
+  requestAnimationFrame(function(){adApplyTransform(true)});
+  document.querySelectorAll('.ad-dot').forEach((d,i)=>d.classList.toggle('active',i===adCurrentIndex));
+  
+  initAdSwipe();
+  
+  if(adSlides.length<=1){
+    const dd=document.querySelector('#adSlider .ad-dots');
+    if(dd)dd.classList.add('static');
+    return;
+  }
+  
+  const delay=Math.max(1500,Number(state.settings.ad_delay)||3000);
+  const dotsEl=document.querySelector('#adSlider .ad-dots');
+  if(dotsEl){dotsEl.classList.remove('static');dotsEl.style.setProperty('--ad-delay',delay+'ms')}
+  adRestartAutoplay();
+}
+
 function goToAdSlide(index){
-  if(!adSlides.length)return;
+  if(!adSlides.length||!adTrackEl)return;
   index=((index%adSlides.length)+adSlides.length)%adSlides.length;
-  adSlides.forEach((s,i)=>s.classList.toggle('active',i===index));
-  document.querySelectorAll('.ad-dot').forEach((d,i)=>d.classList.toggle('active',i===index));
   adCurrentIndex=index;
+  adSlides.forEach((s,i)=>s.classList.toggle('active',i===index));
+  adApplyTransform(true);
+  document.querySelectorAll('.ad-dot').forEach((d,i)=>d.classList.toggle('active',i===index));
+}
+
+// ফিক্স: অ্যাডে টাচ/ড্র্যাগ সোয়াইপ সাপোর্ট — মোবাইলে আঙুলে টেনে অ্যাড পাল্টানো যাবে
+function initAdSwipe(){
+  const slider=document.getElementById('adSlider');
+  if(!slider||slider.dataset.swipeBound)return;
+  slider.dataset.swipeBound='1';
+  const down=e=>{
+    if(adSlides.length<=1||!adTrackEl)return;
+    const p=e.touches?e.touches[0]:e;
+    adDrag={startX:p.clientX,startY:p.clientY,dx:0,axis:null,w:slider.offsetWidth||1};
+    if(adSliderInterval){clearInterval(adSliderInterval);adSliderInterval=null}
+    adTrackEl.classList.add('no-anim');
+    slider.classList.add('ad-dragging');
+  };
+  const move=e=>{
+    if(!adDrag)return;
+    const p=e.touches?e.touches[0]:e;
+    const dx=p.clientX-adDrag.startX,dy=p.clientY-adDrag.startY;
+    if(adDrag.axis===null&&(Math.abs(dx)>8||Math.abs(dy)>8))adDrag.axis=Math.abs(dx)>Math.abs(dy)?'x':'y';
+    if(adDrag.axis!=='x')return;
+    adDrag.dx=dx;
+    if(e.cancelable)e.preventDefault();
+    adTrackEl.style.transform='translateX(calc(-'+(adCurrentIndex*100)+'% + '+dx+'px))';
+  };
+  const up=()=>{
+    if(!adDrag)return;
+    const d=adDrag;adDrag=null;
+    slider.classList.remove('ad-dragging');
+    adTrackEl.classList.remove('no-anim');
+    if(d.axis==='x'&&Math.abs(d.dx)>(d.w*0.15)){
+      goToAdSlide(adCurrentIndex+(d.dx<0?1:-1));
+    }else{
+      adApplyTransform(true);
+    }
+    adRestartAutoplay();
+  };
+  slider.addEventListener('touchstart',down,{passive:true});
+  slider.addEventListener('touchmove',move,{passive:false});
+  slider.addEventListener('touchend',up);
+  slider.addEventListener('touchcancel',up);
+  slider.addEventListener('mousedown',down);
+  if(!window.__adSwipeGlobals){
+    window.__adSwipeGlobals=true;
+    window.addEventListener('mousemove',move);
+    window.addEventListener('mouseup',up);
+  }
 }
 
 function renderHome(){
@@ -605,7 +685,7 @@ function renderHome(){
   }).filter(ad => ad && ad.url !== '');
 
   if (ads.length > 0) {
-    adHtml = `<div class="ad-slider" id="adSlider">`;
+    adHtml = `<div class="ad-slider" id="adSlider"><div class="ad-track">`;
     ads.forEach((ad, i) => {
       const safeUrl = String(ad.url).replace(/"/g, '&quot;');
       adHtml += `<div class="ad-slide ${i===0?'active':''}" data-index="${i}">
@@ -613,13 +693,13 @@ function renderHome(){
         onerror="this.onerror=null; this.style.display='none'; this.parentElement.classList.add('ad-fallback-active')" />
       </div>`;
     });
-    adHtml += `<div class="ad-dots">`;
+    adHtml += `</div><div class="ad-dots">`;
     ads.forEach((_, i) => {
       adHtml += `<div class="ad-dot ${i===0?'active':''}" data-dot="${i}" onclick="goToAdSlide(${i})"></div>`;
     });
     adHtml += `</div></div>`;
   } else {
-    adHtml = `<div class="ad-slider">
+    adHtml = `<div class="ad-slider" id="adSlider"><div class="ad-track">
       <div class="ad-slide active" style="background:linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)">
         <div style="text-align:center;padding:20px;">
           <div style="font-size:48px;margin-bottom:8px;filter:drop-shadow(0 4px 6px rgba(0,0,0,0.1))">🎮</div>
@@ -627,7 +707,7 @@ function renderHome(){
           <p style="font-size:13px;color:var(--muted);font-weight:500">${state.settings.tagline}</p>
         </div>
       </div>
-    </div>`;
+    </div></div>`;
   }
 
   const socialBar=`<div class="social-bar"><a href="${state.settings.telegram}" target="_blank" class="tg">✈️ Telegram</a><a href="${state.settings.youtube}" target="_blank" class="yt">▶️ YouTube</a></div>`;
