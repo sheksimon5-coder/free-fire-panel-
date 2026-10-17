@@ -57,7 +57,10 @@ main{padding:16px 0 90px;min-height:calc(100vh - 60px)}
 .ad-slider{margin-bottom:16px;border-radius:16px;overflow:hidden;position:relative;background:var(--card2);box-shadow:var(--shadow-md);aspect-ratio:16/7;border:1px solid var(--border)}
 .ad-slide{position:absolute;inset:0;opacity:0;transform:scale(1.06);transition:opacity .8s ease-in-out, transform .8s ease-in-out;display:flex;align-items:center;justify-content:center;pointer-events:none;will-change:opacity,transform;z-index:1}
 .ad-slide.active{opacity:1;transform:scale(1);z-index:2}
-.ad-slide img{width:100%;height:100%;object-fit:cover;display:block}
+.ad-slide img{width:100%;height:100%;object-fit:cover;display:block;will-change:transform;animation:adZoom 10s ease-in-out infinite}
+.ad-slide:nth-child(even) img{animation-name:adZoomAlt}
+@keyframes adZoom{0%{transform:scale(1) translate(0,0)}50%{transform:scale(1.15) translate(-2%,-1.2%)}100%{transform:scale(1) translate(0,0)}}
+@keyframes adZoomAlt{0%{transform:scale(1.14) translate(1.8%,1%)}50%{transform:scale(1) translate(0,0)}100%{transform:scale(1.14) translate(1.8%,1%)}}
 .ad-slide.ad-fallback-active::before{content:'🎮';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:56px;background:linear-gradient(135deg,#f8fafc,#f1f5f9);z-index:1}
 .ad-dots{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);display:flex;gap:6px;z-index:5}
 .ad-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.65);box-shadow:0 1px 3px rgba(0,0,0,.25);cursor:pointer;transition:all .3s;pointer-events:auto}
@@ -84,7 +87,8 @@ main{padding:16px 0 90px;min-height:calc(100vh - 60px)}
 .prod-card{overflow:hidden;transition:.2s;border-radius:16px;border:1px solid var(--border);background:#fff;display:flex;flex-direction:column}
 .prod-card:hover{transform:translateY(-2px);border-color:rgba(225,29,72,.3);box-shadow:var(--shadow-hover)}
 .prod-img{aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;font-size:48px;background:#f8fafc;position:relative;overflow:hidden}
-.prod-img img{width:100%;height:100%;object-fit:cover}
+.prod-img img{width:100%;height:100%;object-fit:cover;will-change:transform;animation:prodZoom 8s ease-in-out infinite}
+@keyframes prodZoom{0%{transform:scale(1) translate(0,0)}50%{transform:scale(1.1) translate(0,-1.5%)}100%{transform:scale(1) translate(0,0)}}
 .badge-sale{position:absolute;top:10px;right:10px;font-size:10px;font-weight:800;padding:4px 10px;border-radius:999px;background:linear-gradient(135deg,var(--red),#b91c1c);color:#fff;letter-spacing:.5px;box-shadow:0 2px 6px rgba(239,68,68,.4)}
 .badge-antiban{position:absolute;top:10px;left:10px;font-size:9px;font-weight:800;padding:4px 8px;border-radius:999px;background:linear-gradient(135deg,var(--green),#047857);color:#fff;box-shadow:0 2px 6px rgba(16,185,129,.4)}
 .badge-maint{position:absolute;top:10px;left:10px;font-size:9px;font-weight:800;padding:4px 8px;border-radius:999px;background:linear-gradient(135deg,var(--amber),#b45309);color:#fff}
@@ -547,7 +551,7 @@ function render(){
   updateWhatsappLink();
 }
 
-// ====== AD SLIDER (FADE + ZOOM) ======
+// ====== AD SLIDER (FADE + ZOOM + CONTINUOUS KEN BURNS) ======
 let adSliderInterval=null;
 let adCurrentIndex=0;
 let adSlides=[];
@@ -557,9 +561,10 @@ function startAdSlider(){
   adSlides=document.querySelectorAll('.ad-slide');
   if(adSlides.length===0)return;
   
-  adCurrentIndex=0;
-  adSlides.forEach((s,i)=>s.classList.toggle('active',i===0));
-  document.querySelectorAll('.ad-dot').forEach((d,i)=>d.classList.toggle('active',i===0));
+  // ফিক্স: লগইন/রিলোড/সিঙ্কের পরেও স্লাইডার আগের ছবি থেকেই চলতে থাকবে, প্রথম স্লাইডে রিসেট হবে না
+  if(adCurrentIndex>=adSlides.length)adCurrentIndex=0;
+  adSlides.forEach((s,i)=>s.classList.toggle('active',i===adCurrentIndex));
+  document.querySelectorAll('.ad-dot').forEach((d,i)=>d.classList.toggle('active',i===adCurrentIndex));
   
   if(adSlides.length<=1)return;
   
@@ -642,7 +647,7 @@ function openFileSetup(pid){
 
 let selectedPlan=null,selectedQty=1;
 function openBuyNow(pid){
-  if(!isStoreOnline()) { toast('⚠️ এখন অফলাইন আছি, দয়া করে পরে চেষ্টা করুন।'); return; }
+  if(!isStoreOnline()) { toast('⚠️ এখন অফলাইন আছি, দয়া করে পরে চেষ্টা করুন।'); return; }
   
   const p=state.products.find(x=>x.id===pid);if(!p)return;
   if(!state.user){openAuth('login');return}
@@ -657,7 +662,7 @@ function changeQty(d){selectedQty=Math.max(1,selectedQty+d);$('qtyInput').value=
 function updatePayTotal(){const total=selectedPlan!==null?window._currentPlans[selectedPlan].price*selectedQty:0;const el=$('payTotal');if(el)el.textContent=fmt(total)}
 
 function submitOrder(pid){
-  if(!isStoreOnline()) { toast('⚠️ এখন অফলাইন আছি, দয়া করে পরে চেষ্টা করুন।'); return; }
+  if(!isStoreOnline()) { toast('⚠️ এখন অফলাইন আছি, দয়া করে পরে চেষ্টা করুন।'); return; }
   
   const p=state.products.find(x=>x.id===pid);if(!p)return;
   if(selectedPlan===null){toast('একটি প্ল্যান সিলেক্ট করুন');return}
