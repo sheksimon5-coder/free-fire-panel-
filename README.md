@@ -88,7 +88,6 @@ main{min-height:calc(100vh - 64px);padding-bottom:100px;width:100%}
 .tab{padding:10px 18px;border-radius:12px;font-size:13px;font-weight:700;background:#fff;border:1.5px solid var(--border);transition:.2s;color:var(--text-mid);flex-shrink:0}
 .tab.active{background:var(--text);color:#fff;border-color:transparent;box-shadow:0 4px 12px rgba(15,23,42,.15)}
 
-/* Responsive Grid: Fixed for mobile */
 .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;width:100%;max-width:100%}
 @media(min-width:640px){.grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}}
 @media(min-width:1024px){.grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}}
@@ -96,7 +95,6 @@ main{min-height:calc(100vh - 64px);padding-bottom:100px;width:100%}
 .prod-card{overflow:hidden;transition:.25s;border-radius:18px;border:1px solid var(--border);background:#fff;display:flex;flex-direction:column;max-width:100%}
 .prod-card:hover{transform:translateY(-4px);border-color:rgba(124,58,237,.3);box-shadow:0 16px 32px rgba(124,58,237,.12)}
 
-/* Image fix: Aspect ratio & object-fit */
 .prod-img{aspect-ratio:16/9;width:100%;display:flex;align-items:center;justify-content:center;font-size:48px;background:linear-gradient(135deg,#f8fafc,#f1f5f9);position:relative;overflow:hidden}
 .prod-img img{width:100%;height:100%;object-fit:cover;object-position:center}
 .badge-sale{position:absolute;top:10px;right:10px;font-size:10px;font-weight:800;padding:4px 10px;border-radius:999px;background:var(--gradient-danger);color:#fff}
@@ -109,7 +107,6 @@ main{min-height:calc(100vh - 64px);padding-bottom:100px;width:100%}
 .price{font-size:16px;font-weight:800}
 .old-price{font-size:11px;color:var(--muted);text-decoration:line-through}
 
-/* Button fix: Flexbox to prevent overflow */
 .prod-btns{display:flex;gap:6px;margin-top:auto;width:100%}
 .btn-prod{flex:1;padding:10px 4px;border-radius:10px;font-size:11px;font-weight:700;text-align:center;transition:.2s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:flex;align-items:center;justify-content:center;gap:4px;min-width:0}
 .btn-prod:hover{transform:translateY(-1px)}
@@ -185,7 +182,6 @@ main{min-height:calc(100vh - 64px);padding-bottom:100px;width:100%}
 .btn-logout{width:100%;padding:13px;border-radius:12px;font-size:14px;font-weight:700;background:#fff;color:var(--danger);border:1px solid #fecaca;transition:.2s}
 .btn-logout:hover{background:#fef2f2}
 
-/* Bottom Nav Fix: To ensure it stays at bottom and doesn't overlap text */
 nav.botnav{position:fixed;bottom:0;left:0;right:0;z-index:30;background:rgba(255,255,255,.95);backdrop-filter:blur(16px);border-top:1px solid var(--border);box-shadow:0 -4px 20px rgba(0,0,0,.05);width:100%}
 .botnav-in{max-width:1200px;margin:0 auto;padding:0 8px;display:grid;grid-template-columns:repeat(4,1fr);height:66px;align-items:center}
 .navbtn{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font-size:10px;color:var(--text-mid);transition:.2s;font-weight:600;border-radius:10px;margin:6px 0;height:54px;position:relative;width:100%}
@@ -193,7 +189,6 @@ nav.botnav{position:fixed;bottom:0;left:0;right:0;z-index:30;background:rgba(255
 .navbtn.active svg{stroke:var(--primary)}
 .navbtn svg{width:22px;height:22px}
 
-/* Premium Add Balance Button */
 .navbtn-wallet{
   background:linear-gradient(135deg, #10b981 0%, #059669 50%, #047857 100%);
   color:#fff !important;
@@ -237,6 +232,17 @@ nav.botnav{position:fixed;bottom:0;left:0;right:0;z-index:30;background:rgba(255
 .offer-marquee span{display:inline-block;padding-left:100%;animation:offerScroll 18s linear infinite}
 @keyframes offerScroll{0%{transform:translateX(0)}100%{transform:translateX(-100%)}}
 
+.live-feed{margin-bottom:20px}
+.live-feed-head{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.live-dot{width:10px;height:10px;border-radius:50%;background:var(--success);animation:blink 1.5s infinite;box-shadow:0 0 10px rgba(16,185,129,.6)}
+.live-feed-title{font-size:14px;font-weight:800}
+.live-item{display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:14px;background:#fff;border:1px solid var(--border);box-shadow:var(--shadow-xs);font-size:13px;margin-bottom:8px}
+.live-avatar{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;font-size:11px;flex-shrink:0}
+.live-body{flex:1;min-width:0}
+.live-text{font-size:12px;line-height:1.4;color:var(--text-mid)}
+.live-text strong{color:var(--text);font-weight:700}
+.live-time{font-size:10px;color:var(--muted);margin-top:2px}
+
 .social-bar{display:flex;gap:10px;margin:24px 0 10px;width:100%}
 .social-bar a{flex:1;padding:13px;border-radius:14px;font-size:13px;font-weight:700;color:#fff;display:flex;align-items:center;justify-content:center;gap:8px;box-shadow:var(--shadow-md);transition:.2s}
 .social-bar a:hover{transform:translateY(-2px)}
@@ -263,7 +269,6 @@ nav.botnav{position:fixed;bottom:0;left:0;right:0;z-index:30;background:rgba(255
 .whatsapp-fab svg{width:30px;height:30px}
 .whatsapp-fab:active{transform:scale(.95)}
 
-/* Mobile Specific Fixes */
 @media(max-width:400px){
   .logo-name{font-size:14px}
   .balance-chip{padding:6px 10px;font-size:11px}
@@ -401,6 +406,7 @@ function toast(m){ const t=document.createElement('div'); t.className='toast'; t
 function copyText(t){ if(navigator.clipboard){ navigator.clipboard.writeText(t).then(()=>toast('✓ কপি হয়েছে')).catch(()=>fallbackCopy(t)); } else fallbackCopy(t); }
 function fallbackCopy(t){ const ta=document.createElement('textarea'); ta.value=t; ta.style.position='fixed'; ta.style.opacity='0'; document.body.appendChild(ta); ta.select(); try{ document.execCommand('copy'); toast('✓ কপি হয়েছে'); }catch(e){} document.body.removeChild(ta); }
 
+// ============ TELEGRAM FUNCTIONS ============
 function sendTelegramNotification(order, product, keyContent){
   const token = (TELEGRAM_CONFIG.botToken && TELEGRAM_CONFIG.botToken!=='YOUR_BOT_TOKEN_HERE') ? TELEGRAM_CONFIG.botToken : state.settings.telegram_bot_token;
   const chatId = (TELEGRAM_CONFIG.chatId && TELEGRAM_CONFIG.chatId!=='YOUR_CHAT_ID_HERE') ? TELEGRAM_CONFIG.chatId : state.settings.telegram_chat_id;
@@ -410,6 +416,15 @@ function sendTelegramNotification(order, product, keyContent){
   const msg = `${statusEmoji} <b>New Order — ${order.status}</b>\n\n📦 <b>Product:</b> ${product?product.name:'Unknown'}\n⏱ <b>Plan:</b> ${order.planDur}\n💰 <b>Amount:</b> ${order.price} BDT\n🔢 <b>Qty:</b> ${order.qty}\n🆔 <b>Txn:</b> <code>${order.txnId}</code>\n\n👤 <b>User:</b> ${order.username||state.user?.username}\n📧 <b>Email:</b> ${order.email||state.user?.email}${keyInfo}`;
   fetch(`https://api.telegram.org/bot${token}/sendMessage`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({chat_id:chatId,text:msg,parse_mode:'HTML'})}).catch(e=>console.warn(e));
 }
+
+function sendDepositTelegramNotification(dep){
+  const token = (TELEGRAM_CONFIG.botToken && TELEGRAM_CONFIG.botToken!=='YOUR_BOT_TOKEN_HERE') ? TELEGRAM_CONFIG.botToken : state.settings.telegram_bot_token;
+  const chatId = (TELEGRAM_CONFIG.chatId && TELEGRAM_CONFIG.chatId!=='YOUR_CHAT_ID_HERE') ? TELEGRAM_CONFIG.chatId : state.settings.telegram_chat_id;
+  if(!token||!chatId) return;
+  const msg = `💰 <b>New Add Balance Request!</b>\n\n👤 <b>User:</b> ${esc(dep.username)}\n📧 <b>Email:</b> ${esc(dep.email)}\n\n💵 <b>Amount:</b> ${fmt(dep.amount)}\n🆔 <b>TxnID:</b> <code>${esc(dep.txnId)}</code>\n${dep.note ? `\n📝 <b>Note:</b> ${esc(dep.note)}\n` : ''}\n⏳ <i>Please approve it from Admin Panel.</i>`;
+  fetch(`https://api.telegram.org/bot${token}/sendMessage`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({chat_id:chatId,text:msg,parse_mode:'HTML'})}).catch(e=>console.warn(e));
+}
+
 function sendLowStockAlert(productName, planDur, remaining){
   const token = (TELEGRAM_CONFIG.botToken && TELEGRAM_CONFIG.botToken!=='YOUR_BOT_TOKEN_HERE') ? TELEGRAM_CONFIG.botToken : state.settings.telegram_bot_token;
   const chatId = (TELEGRAM_CONFIG.chatId && TELEGRAM_CONFIG.chatId!=='YOUR_CHAT_ID_HERE') ? TELEGRAM_CONFIG.chatId : state.settings.telegram_chat_id;
@@ -568,7 +583,29 @@ function closeSidebar(){ $('sidebar').classList.remove('show'); }
 function openModal(html){ $('modalContent').innerHTML=html; $('modal').classList.add('show'); }
 function closeModal(){ $('modal').classList.remove('show'); }
 
-setInterval(()=>{ updateStatusBadge(); updateWhatsappLink(); }, 4000);
+function generateLiveFeed(){
+  const real = state.orders.slice().reverse().slice(0,6).map(o=>{ 
+    const u=state.users.find(x=>x.id===o.userId); 
+    const p=state.products.find(x=>x.id===o.productId); 
+    return {user:u?.username||'User',color:u?.avatarColor||'#7c3aed',product:p?.name||'Product',icon:p?.icon||'🎮',time:o.createdAt,real:true}; 
+  });
+  const demoNames=[['Rahim','#ec4899'],['Karim','#7c3aed'],['Sadia','#06b6d4'],['Tanvir','#f97316'],['Nusrat','#10b981']];
+  const demoProducts=state.products.filter(p=>p.status==='ACTIVE');
+  if(demoProducts.length===0) return real;
+  const demo=[];
+  for(let i=0;i<3;i++){ 
+    const n=demoNames[Math.floor(Math.random()*demoNames.length)]; 
+    const p=demoProducts[Math.floor(Math.random()*demoProducts.length)]; 
+    demo.push({user:n[0],color:n[1],product:p.name,icon:p.icon,time:new Date(Date.now()-Math.floor(Math.random()*3600000)).toISOString(),real:false}); 
+  }
+  return [...real,...demo].sort((a,b)=>new Date(b.time)-new Date(a.time)).slice(0,6);
+}
+function renderLiveFeedItems(){
+  const items=generateLiveFeed();
+  if(items.length===0) return '<div style="text-align:center;padding:16px;color:var(--muted);font-size:12px">এখনো কোনো অর্ডার নেই</div>';
+  return items.map(it=>`<div class="live-item"><div class="live-avatar" style="background:${esc(it.color)}">${esc(it.user.slice(0,2).toUpperCase())}</div><div class="live-body"><div class="live-text"><strong>${esc(it.user)}</strong> কিনেছেন ${esc(it.icon)} ${esc(it.product)}${it.real?' <span style="color:var(--success);font-size:10px">✓</span>':''}</div><div class="live-time">⏰ ${timeAgoShort(it.time)}</div></div></div>`).join('');
+}
+setInterval(()=>{ if(state.page==='home'){ const f=$('liveFeed'); if(f) f.innerHTML=renderLiveFeedItems(); } updateStatusBadge(); updateWhatsappLink(); }, 4000);
 
 function updateStatusBadge(){
   const hr=$('headerRight'); if(!hr) return;
@@ -682,6 +719,10 @@ function renderHome(){
   const socialBar=`<div class="social-bar"><a href="${esc(state.settings.telegram)}" target="_blank" class="tg">✈️ Telegram</a><a href="${esc(state.settings.youtube)}" target="_blank" class="yt">▶️ YouTube</a></div>`;
   
   return `${offerBar}${notif}${adHtml}
+    <div class="live-feed">
+      <div class="live-feed-head"><span class="live-dot"></span><div class="live-feed-title">🔴 লাইভ অর্ডার</div></div>
+      <div id="liveFeed">${renderLiveFeedItems()}</div>
+    </div>
     <div class="tabs">${tabs}</div>
     ${prods.length===0 ? `<div class="card empty"><div class="empty-icon">🛍️</div><div style="font-weight:700;font-size:16px">কোনো প্রোডাক্ট নেই</div><div style="font-size:13px;margin-top:6px">এই ক্যাটেগরিতে এখনো প্রোডাক্ট নেই</div></div>` : `<div class="grid">${prods.map(p=>renderProductCard(p)).join('')}</div>`}
     ${socialBar}`;
@@ -958,7 +999,12 @@ function submitDeposit(){
   if(state.deposits.find(d=>d.txnId===txn)){ toast('এই TxnID আগে ব্যবহার হয়েছে'); return; }
   
   const dep={id:uid(),userId:state.user.id,username:state.user.username,email:state.user.email,amount,txnId:txn,note,status:'PENDING',adminNote:'',createdAt:new Date().toISOString(),processedAt:null};
-  state.deposits.push(dep); pushCol('deposits');
+  state.deposits.push(dep); 
+  pushCol('deposits');
+  
+  // Send Telegram Notification for Deposit
+  sendDepositTelegramNotification(dep);
+  
   closeModal(); toast('✓ রিকোয়েস্ট পাঠানো হয়েছে'); render();
 }
 
