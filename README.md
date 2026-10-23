@@ -2,7 +2,7 @@
 <html lang="bn">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
 <meta name="theme-color" content="#7c3aed" />
 <title>Panel Bajar - User Panel</title>
 <style>
@@ -23,15 +23,15 @@ img,svg{max-width:100%;height:auto;display:block}
   --gradient-danger:linear-gradient(135deg,#ef4444 0%,#dc2626 100%);
   --gradient-bkash:linear-gradient(135deg,#e2136e 0%,#be185d 100%);
 }
-html,body{width:100%;max-width:100vw;overflow-x:hidden}
+html,body{width:100%;max-width:100vw;overflow-x:hidden;-webkit-tap-highlight-color:transparent}
 body{font-family:-apple-system,'Segoe UI','Hind Siliguri',system-ui,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;line-height:1.55;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
 button{cursor:pointer;border:none;font-family:inherit;color:inherit;background:none}
-input,select,textarea{background:#fff;border:1.5px solid var(--border);color:var(--text);border-radius:12px;padding:13px 16px;width:100%;font-family:inherit;font-size:14px;transition:all .2s}
+input,select,textarea{background:#fff;border:1.5px solid var(--border);color:var(--text);border-radius:12px;padding:13px 16px;width:100%;font-family:inherit;font-size:14px;transition:all .2s;max-width:100%}
 input:focus,select:focus,textarea:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 4px rgba(124,58,237,.1)}
 ::-webkit-scrollbar{width:6px;height:6px}::-webkit-scrollbar-thumb{background:#cbd5e1;border-radius:3px}
 
-header{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+header{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);width:100%}
 .header-in{max-width:1200px;margin:0 auto;padding:0 16px;height:64px;display:flex;align-items:center;justify-content:space-between;gap:12px}
 .logo{display:flex;align-items:center;gap:10px;cursor:pointer;min-width:0}
 .logo-badge{width:40px;height:40px;border-radius:12px;background:var(--gradient-primary);display:flex;align-items:center;justify-content:center;font-weight:900;color:#fff;font-size:16px;box-shadow:0 4px 12px rgba(124,58,237,.3);overflow:hidden;flex-shrink:0}
@@ -49,9 +49,9 @@ header{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.92);backdro
 .btn-login:hover{transform:translateY(-1px)}
 .btn-avatar{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;font-size:13px;border:2px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.15)}
 
-main{min-height:calc(100vh - 64px);padding-bottom:90px}
-.container{max-width:1200px;margin:0 auto;padding:20px 16px}
-.card{background:var(--card);border:1px solid var(--border);border-radius:18px;box-shadow:var(--shadow-sm)}
+main{min-height:calc(100vh - 64px);padding-bottom:100px;width:100%}
+.container{max-width:1200px;margin:0 auto;padding:20px 16px;width:100%}
+.card{background:var(--card);border:1px solid var(--border);border-radius:18px;box-shadow:var(--shadow-sm);max-width:100%}
 
 .btn-primary{background:var(--gradient-primary);color:#fff;font-weight:700;transition:.2s;box-shadow:0 4px 12px rgba(124,58,237,.25);border-radius:12px}
 .btn-primary:hover{transform:translateY(-1px);box-shadow:0 8px 20px rgba(124,58,237,.35)}
@@ -62,7 +62,7 @@ main{min-height:calc(100vh - 64px);padding-bottom:90px}
 .btn-ghost{background:var(--bg);color:var(--text);font-weight:700;border:1.5px solid var(--border)}
 .btn-full{width:100%;padding:14px;border-radius:12px;font-weight:700;font-size:15px;transition:.2s}
 
-.ad-slider{margin-bottom:20px;border-radius:18px;overflow:hidden;position:relative;background:var(--card2);box-shadow:var(--shadow-md);aspect-ratio:16/7;max-height:340px;border:1px solid var(--border);touch-action:pan-y;cursor:grab;user-select:none}
+.ad-slider{margin-bottom:20px;border-radius:18px;overflow:hidden;position:relative;background:var(--card2);box-shadow:var(--shadow-md);aspect-ratio:16/7;max-height:340px;border:1px solid var(--border);touch-action:pan-y;cursor:grab;user-select:none;width:100%}
 .ad-slider.ad-dragging{cursor:grabbing}
 .ad-track{display:flex;height:100%;transition:transform .6s cubic-bezier(.45,0,.2,1)}
 .ad-track.no-anim{transition:none}
@@ -83,29 +83,37 @@ main{min-height:calc(100vh - 64px);padding-bottom:90px}
 .hero-btn:hover{background:rgba(255,255,255,.3);transform:translateY(-1px)}
 .hero-btn.solid{background:#fff;color:var(--primary)}
 
-.tabs{display:flex;gap:8px;margin:20px 0 16px;overflow-x:auto;scrollbar-width:none;padding-bottom:4px}
+.tabs{display:flex;gap:8px;margin:20px 0 16px;overflow-x:auto;scrollbar-width:none;padding-bottom:4px;width:100%}
 .tabs::-webkit-scrollbar{display:none}
 .tab{padding:10px 18px;border-radius:12px;font-size:13px;font-weight:700;background:#fff;border:1.5px solid var(--border);transition:.2s;color:var(--text-mid);flex-shrink:0}
 .tab.active{background:var(--text);color:#fff;border-color:transparent;box-shadow:0 4px 12px rgba(15,23,42,.15)}
 
-.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-@media(min-width:640px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
-@media(min-width:1024px){.grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
-.prod-card{overflow:hidden;transition:.25s;border-radius:18px;border:1px solid var(--border);background:#fff;display:flex;flex-direction:column}
+/* Responsive Grid: Fixed for mobile */
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;width:100%;max-width:100%}
+@media(min-width:640px){.grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}}
+@media(min-width:1024px){.grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}}
+
+.prod-card{overflow:hidden;transition:.25s;border-radius:18px;border:1px solid var(--border);background:#fff;display:flex;flex-direction:column;max-width:100%}
 .prod-card:hover{transform:translateY(-4px);border-color:rgba(124,58,237,.3);box-shadow:0 16px 32px rgba(124,58,237,.12)}
-.prod-img{aspect-ratio:4/3;width:100%;display:flex;align-items:center;justify-content:center;font-size:48px;background:linear-gradient(135deg,#f8fafc,#f1f5f9);position:relative;overflow:hidden}
-.prod-img img{width:100%;height:100%;object-fit:cover}
+
+/* Image fix: Aspect ratio & object-fit */
+.prod-img{aspect-ratio:16/9;width:100%;display:flex;align-items:center;justify-content:center;font-size:48px;background:linear-gradient(135deg,#f8fafc,#f1f5f9);position:relative;overflow:hidden}
+.prod-img img{width:100%;height:100%;object-fit:cover;object-position:center}
 .badge-sale{position:absolute;top:10px;right:10px;font-size:10px;font-weight:800;padding:4px 10px;border-radius:999px;background:var(--gradient-danger);color:#fff}
 .badge-antiban{position:absolute;top:10px;left:10px;font-size:9px;font-weight:800;padding:4px 8px;border-radius:999px;background:var(--gradient-success);color:#fff}
-.prod-body{padding:14px;display:flex;flex-direction:column;flex:1}
-.prod-name{font-weight:800;font-size:14px;margin-bottom:4px;line-height:1.3;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden}
-.prod-desc{font-size:11px;color:var(--text-mid);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:32px;margin-bottom:10px}
-.price-row{display:flex;align-items:center;gap:8px;margin-bottom:12px;flex-wrap:wrap}
-.price{font-size:18px;font-weight:800}
-.old-price{font-size:12px;color:var(--muted);text-decoration:line-through}
-.prod-btns{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:auto}
-.btn-prod{padding:9px 6px;border-radius:10px;font-size:11px;font-weight:700;text-align:center;transition:.2s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+.prod-body{padding:12px;display:flex;flex-direction:column;flex:1;min-width:0}
+.prod-name{font-weight:800;font-size:13px;margin-bottom:4px;line-height:1.3;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden;word-break:break-word}
+.prod-desc{font-size:11px;color:var(--text-mid);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:30px;margin-bottom:8px;word-break:break-word}
+.price-row{display:flex;align-items:center;gap:6px;margin-bottom:10px;flex-wrap:wrap}
+.price{font-size:16px;font-weight:800}
+.old-price{font-size:11px;color:var(--muted);text-decoration:line-through}
+
+/* Button fix: Flexbox to prevent overflow */
+.prod-btns{display:flex;gap:6px;margin-top:auto;width:100%}
+.btn-prod{flex:1;padding:10px 4px;border-radius:10px;font-size:11px;font-weight:700;text-align:center;transition:.2s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:flex;align-items:center;justify-content:center;gap:4px;min-width:0}
 .btn-prod:hover{transform:translateY(-1px)}
+.btn-prod svg{width:12px;height:12px;flex-shrink:0}
 
 .list-item{display:flex;align-items:center;gap:14px;padding:16px;margin-bottom:10px;border-radius:16px;background:#fff;border:1px solid var(--border);box-shadow:var(--shadow-xs);transition:.2s}
 .list-item:hover{box-shadow:var(--shadow-sm);border-color:rgba(124,58,237,.2)}
@@ -177,10 +185,10 @@ main{min-height:calc(100vh - 64px);padding-bottom:90px}
 .btn-logout{width:100%;padding:13px;border-radius:12px;font-size:14px;font-weight:700;background:#fff;color:var(--danger);border:1px solid #fecaca;transition:.2s}
 .btn-logout:hover{background:#fef2f2}
 
-/* ===== BOTTOM NAV ===== */
-nav.botnav{position:fixed;bottom:0;left:0;right:0;z-index:30;background:rgba(255,255,255,.95);backdrop-filter:blur(16px);border-top:1px solid var(--border);box-shadow:0 -4px 20px rgba(0,0,0,.05)}
+/* Bottom Nav Fix: To ensure it stays at bottom and doesn't overlap text */
+nav.botnav{position:fixed;bottom:0;left:0;right:0;z-index:30;background:rgba(255,255,255,.95);backdrop-filter:blur(16px);border-top:1px solid var(--border);box-shadow:0 -4px 20px rgba(0,0,0,.05);width:100%}
 .botnav-in{max-width:1200px;margin:0 auto;padding:0 8px;display:grid;grid-template-columns:repeat(4,1fr);height:66px;align-items:center}
-.navbtn{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font-size:10px;color:var(--text-mid);transition:.2s;font-weight:600;border-radius:10px;margin:6px 0;height:54px;position:relative}
+.navbtn{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font-size:10px;color:var(--text-mid);transition:.2s;font-weight:600;border-radius:10px;margin:6px 0;height:54px;position:relative;width:100%}
 .navbtn.active{color:var(--primary)}
 .navbtn.active svg{stroke:var(--primary)}
 .navbtn svg{width:22px;height:22px}
@@ -190,7 +198,7 @@ nav.botnav{position:fixed;bottom:0;left:0;right:0;z-index:30;background:rgba(255
   background:linear-gradient(135deg, #10b981 0%, #059669 50%, #047857 100%);
   color:#fff !important;
   box-shadow:0 6px 16px rgba(5,150,105,.4), inset 0 1px 0 rgba(255,255,255,.2);
-  transform:translateY(-8px);
+  transform:translateY(-6px);
   border-radius:16px;
   margin:0 4px;
   height:60px;
@@ -219,23 +227,23 @@ nav.botnav{position:fixed;bottom:0;left:0;right:0;z-index:30;background:rgba(255
 .empty{text-align:center;padding:60px 20px;color:var(--text-mid);display:flex;flex-direction:column;align-items:center}
 .empty-icon{font-size:60px;margin-bottom:16px;opacity:.6}
 
-.notif{padding:11px 16px;font-size:12px;font-weight:500;background:var(--gradient-danger);color:#fff;overflow:hidden;margin-bottom:14px;border-radius:12px;box-shadow:0 4px 12px rgba(239,68,68,.2)}
+.notif{padding:11px 16px;font-size:12px;font-weight:500;background:var(--gradient-danger);color:#fff;overflow:hidden;margin-bottom:14px;border-radius:12px;box-shadow:0 4px 12px rgba(239,68,68,.2);width:100%}
 .marquee{white-space:nowrap;animation:marquee 22s linear infinite}
 @keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-.offer-bar{margin-bottom:14px;border-radius:12px;overflow:hidden;background:linear-gradient(90deg,#7c3aed,#e11d48,#7c3aed);background-size:200% 100%;animation:offerGradient 4s linear infinite;box-shadow:0 4px 14px rgba(124,58,237,.25)}
+.offer-bar{margin-bottom:14px;border-radius:12px;overflow:hidden;background:linear-gradient(90deg,#7c3aed,#e11d48,#7c3aed);background-size:200% 100%;animation:offerGradient 4s linear infinite;box-shadow:0 4px 14px rgba(124,58,237,.25);width:100%}
 @keyframes offerGradient{0%{background-position:0% 50%}100%{background-position:200% 50%}}
 .offer-inner{display:flex;align-items:center;gap:10px;padding:11px 16px;color:#fff;font-size:13px;font-weight:600}
 .offer-marquee{overflow:hidden;flex:1;white-space:nowrap}
 .offer-marquee span{display:inline-block;padding-left:100%;animation:offerScroll 18s linear infinite}
 @keyframes offerScroll{0%{transform:translateX(0)}100%{transform:translateX(-100%)}}
 
-.social-bar{display:flex;gap:10px;margin:24px 0 10px}
+.social-bar{display:flex;gap:10px;margin:24px 0 10px;width:100%}
 .social-bar a{flex:1;padding:13px;border-radius:14px;font-size:13px;font-weight:700;color:#fff;display:flex;align-items:center;justify-content:center;gap:8px;box-shadow:var(--shadow-md);transition:.2s}
 .social-bar a:hover{transform:translateY(-2px)}
 .social-bar .tg{background:linear-gradient(135deg,#26a5e4,#1a8ec7)}
 .social-bar .yt{background:linear-gradient(135deg,#ff0000,#cc0000)}
 
-.key-box{margin-top:12px;padding:14px;border-radius:12px;background:rgba(16,185,129,.06);border:1.5px solid rgba(16,185,129,.3)}
+.key-box{margin-top:12px;padding:14px;border-radius:12px;background:rgba(16,185,129,.06);border:1.5px solid rgba(16,185,129,.3);width:100%}
 .key-box-head{display:flex;align-items:center;gap:6px;font-size:11px;font-weight:900;color:var(--success);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px}
 .key-content{font-family:monospace;font-size:13px;white-space:pre-wrap;word-break:break-all;background:#fff;padding:12px;border-radius:10px;border:1px solid var(--border);line-height:1.7;max-height:200px;overflow-y:auto}
 .key-copy-row{display:flex;gap:8px;margin-top:10px}
@@ -255,13 +263,21 @@ nav.botnav{position:fixed;bottom:0;left:0;right:0;z-index:30;background:rgba(255
 .whatsapp-fab svg{width:30px;height:30px}
 .whatsapp-fab:active{transform:scale(.95)}
 
-@media(max-width:360px){
+/* Mobile Specific Fixes */
+@media(max-width:400px){
   .logo-name{font-size:14px}
   .balance-chip{padding:6px 10px;font-size:11px}
   .hero-balance{font-size:30px}
+  .grid{gap:10px}
+  .prod-img{aspect-ratio:4/3}
   .prod-body{padding:10px}
-  .price{font-size:16px}
-  .btn-prod{font-size:10px}
+  .prod-name{font-size:12px}
+  .prod-desc{font-size:10px;min-height:26px}
+  .price{font-size:15px}
+  .btn-prod{font-size:10px;padding:8px 2px}
+  .btn-prod svg{width:10px;height:10px}
+  .navbtn{font-size:9px}
+  .navbtn-wallet{font-size:9px}
 }
 </style>
 </head>
@@ -278,13 +294,22 @@ nav.botnav{position:fixed;bottom:0;left:0;right:0;z-index:30;background:rgba(255
 <main><div class="container" id="main"></div></main>
 
 <nav class="botnav"><div class="botnav-in">
-  <button class="navbtn" data-page="home" onclick="nav('home')"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 12l9-9 9 9M5 10v10h14V10"/></svg>হোম</button>
+  <button class="navbtn" data-page="home" onclick="nav('home')">
+    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 12l9-9 9 9M5 10v10h14V10"/></svg>
+    হোম
+  </button>
   <button class="navbtn navbtn-wallet" data-page="wallet" onclick="nav('wallet')">
     <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
     এড ব্যালেন্স
   </button>
-  <button class="navbtn" data-page="orders" onclick="nav('orders')"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 2l1 4h12l-2 8H8L6 2zM6 2H4M9 18a1 1 0 100 2 1 1 0 000-2zM17 18a1 1 0 100 2 1 1 0 000-2z"/></svg>অর্ডার</button>
-  <button class="navbtn" data-page="account" onclick="nav('account')"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-7 8-7s8 3 8 7"/></svg>একাউন্ট</button>
+  <button class="navbtn" data-page="orders" onclick="nav('orders')">
+    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 2l1 4h12l-2 8H8L6 2zM6 2H4M9 18a1 1 0 100 2 1 1 0 000-2zM17 18a1 1 0 100 2 1 1 0 000-2z"/></svg>
+    অর্ডার
+  </button>
+  <button class="navbtn" data-page="account" onclick="nav('account')">
+    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-7 8-7s8 3 8 7"/></svg>
+    একাউন্ট
+  </button>
 </div></nav>
 
 <div class="modal" id="modal" onclick="if(event.target===this)closeModal()"><div class="modal-card" id="modalContent"></div></div>
