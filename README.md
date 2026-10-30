@@ -1,9 +1,10 @@
+<!DOCTYPE html>
 <html lang="bn">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <meta name="theme-color" content="#7c3aed" />
-<title>Panel Bajar - Premium Mods</title> <!-- এখানে টাইটেল ঠিক করা হয়েছে -->
+<title>Panel Bajar - Premium Mods</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -247,13 +248,124 @@ nav.botnav{
 .navbtn-wallet-label{
   margin-top:38px; font-size:10px; color:var(--success); font-weight:700; letter-spacing:.5px;
 }
+
+/* ============ RESPONSIVE FIX LAYER ============ */
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+body {
+  padding-bottom: calc(110px + env(safe-area-inset-bottom, 0px));
+}
+*, *::before, *::after { min-width: 0; min-height: 0; }
+.container { padding: 16px 14px; }
+.header-in { padding: 0 12px; gap: 6px; }
+.logo-badge { width: 36px; height: 36px; font-size: 14px; }
+.logo-name { font-size: clamp(12px, 3.5vw, 15px); }
+.header-right { gap: 4px; }
+.balance-chip { font-size: clamp(10px, 2.8vw, 12px); padding: 5px 8px; }
+.status-badge { font-size: clamp(9px, 2.4vw, 10px); padding: 5px 7px; }
+.btn-login { padding: 0 12px; height: 32px; font-size: 11px; }
+.btn-avatar { width: 32px; height: 32px; font-size: 11px; }
+.ad-slider { aspect-ratio: 16 / 8; max-height: 280px; }
+@media (max-width: 380px) { .ad-slider { aspect-ratio: 16 / 9; max-height: 220px; } }
+.hero-card { padding: 20px 18px; }
+.hero-balance { font-size: clamp(26px, 8vw, 36px); }
+.hero-btn { padding: 9px 16px; font-size: 12px; }
+.page-title { font-size: clamp(18px, 5vw, 24px); word-break: break-word; overflow-wrap: anywhere; }
+.stat { padding: 16px 14px; }
+.stat-val { font-size: clamp(18px, 5vw, 22px); }
+.stat-label { font-size: clamp(10px, 2.6vw, 11px); }
+.grid { gap: 10px; }
+.prod-card { min-width: 0; border-radius: 16px; }
+.prod-img { aspect-ratio: 16 / 9; }
+.prod-name { font-size: clamp(11px, 3.2vw, 13px); word-break: break-word; overflow-wrap: anywhere; -webkit-line-clamp: 2; line-clamp: 2; }
+.prod-desc { font-size: clamp(10px, 2.8vw, 11px); min-height: 26px; }
+.price { font-size: clamp(14px, 4vw, 16px); }
+.old-price { font-size: clamp(9px, 2.5vw, 11px); }
+.prod-btns { gap: 5px; }
+.btn-prod { font-size: clamp(9px, 2.6vw, 11px); padding: 9px 3px; min-width: 0; }
+.btn-prod svg { width: 11px; height: 11px; }
+.tabs { gap: 6px; margin: 16px 0 14px; }
+.tab { padding: 9px 14px; font-size: clamp(11px, 3vw, 13px); }
+.list-item { padding: 14px; gap: 12px; }
+.list-title { font-size: clamp(12px, 3.4vw, 14px); word-break: break-word; overflow-wrap: anywhere; }
+.list-sub { font-size: clamp(10px, 2.8vw, 11px); word-break: break-word; }
+.list-icon { width: 40px; height: 40px; font-size: 20px; }
+.modal, .welcome-modal {
+  padding: max(16px, env(safe-area-inset-top, 0px) + 8px) 16px max(16px, env(safe-area-inset-bottom, 0px) + 8px);
+}
+.modal-card, .welcome-card { max-height: calc(100dvh - 32px); max-height: calc(100vh - 32px); border-radius: 20px; }
+.modal-title { font-size: clamp(17px, 4.5vw, 20px); }
+input, select, textarea { font-size: 16px; padding: 12px 14px; }
+@media (min-width: 480px) { input, select, textarea { font-size: 14px; padding: 13px 16px; } }
+.plan { padding: 12px; }
+.plan-dur { font-size: clamp(12px, 3.2vw, 14px); }
+.plan-price { font-size: clamp(15px, 4vw, 18px); }
+.plan-stock { font-size: clamp(9px, 2.5vw, 10px); }
+.bkash-num-row { flex-wrap: wrap; gap: 8px; }
+.bkash-num { font-size: clamp(14px, 4vw, 18px); word-break: break-all; }
+.btn-copy { padding: 8px 12px; font-size: 11px; }
+.key-content { font-size: 12px; max-height: 180px; word-break: break-all; }
+.live-item { padding: 10px 12px; }
+.live-text { font-size: clamp(11px, 3vw, 12px); word-break: break-word; overflow-wrap: anywhere; }
+.live-avatar { width: 32px; height: 32px; font-size: 10px; }
+.social-bar { gap: 8px; }
+.social-bar a { padding: 11px; font-size: clamp(11px, 3vw, 13px); }
+@media (max-width: 340px) { .social-bar { flex-direction: column; } }
+nav.botnav { bottom: calc(12px + env(safe-area-inset-bottom, 0px)); width: calc(100% - 24px); max-width: 440px; }
+.botnav-in { height: 66px; padding: 0 6px; }
+.navbtn { font-size: clamp(9px, 2.4vw, 10px); gap: 3px; }
+.navbtn svg { width: 20px; height: 20px; }
+.navbtn-wallet-circle { width: 52px; height: 52px; top: -22px; }
+.navbtn-wallet-circle svg { width: 24px; height: 24px; }
+.navbtn-wallet-label { margin-top: 34px; font-size: 9px; }
+.whatsapp-fab { bottom: calc(96px + env(safe-area-inset-bottom, 0px)); right: 14px; width: 52px; height: 52px; }
+.whatsapp-fab svg { width: 26px; height: 26px; }
+.notif, .offer-inner { padding: 10px 14px; font-size: clamp(11px, 3vw, 12px); }
+.empty { padding: 48px 16px; }
+.empty-icon { font-size: clamp(44px, 12vw, 60px); }
+.welcome-btn, .welcome-close { font-size: clamp(13px, 3.6vw, 15px); padding: 13px; }
+@media (max-width: 320px) {
+  .container { padding: 12px 10px; }
+  .header-in { padding: 0 8px; }
+  .logo-name { display: none; }
+  .balance-chip { padding: 4px 6px; }
+  .status-badge { display: none; }
+  .grid { gap: 8px; }
+  .prod-body { padding: 10px; }
+  .prod-btns { flex-direction: column; }
+  .btn-prod { width: 100%; }
+}
+@media (min-width: 640px) {
+  .container { max-width: 640px; padding: 24px 20px; }
+  .header-in { max-width: 640px; padding: 0 20px; }
+  .grid { gap: 14px; }
+  .prod-name { -webkit-line-clamp: 1; line-clamp: 1; }
+}
+@media (min-width: 768px) {
+  .container { max-width: 720px; }
+  .header-in { max-width: 720px; height: 68px; }
+  .ad-slider { max-height: 360px; }
+  nav.botnav { max-width: 480px; }
+}
+@media (max-height: 500px) and (orientation: landscape) {
+  .ad-slider { max-height: 180px; aspect-ratio: 21 / 9; }
+  .hero-balance { font-size: 24px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee, .offer-marquee span, .status-badge.online .status-dot, .live-dot { animation: none !important; }
+}
+/* ============ END RESPONSIVE FIX ============ */
 </style>
 </head>
 <body>
 
 <header><div class="header-in">
   <div class="logo" onclick="handleLogoClick()">
-    <!-- লোগো সাইজ ও নাম ঠিক করা হয়েছে -->
     <div class="logo-badge" id="logoBadge">PB</div>
     <span class="logo-name" id="siteName">PANEL BAJAR</span>
   </div>
@@ -272,14 +384,12 @@ nav.botnav{
       <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 2l1 4h12l-2 8H8L6 2zM6 2H4M9 18a1 1 0 100 2 1 1 0 000-2zM17 18a1 1 0 100 2 1 1 0 000-2z"/></svg>
       My Order
     </button>
-    
     <div class="navbtn-wallet-wrap" onclick="nav('wallet')">
       <div class="navbtn-wallet-circle">
         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
       </div>
       <span class="navbtn-wallet-label">ADD FUND</span>
     </div>
-
     <button class="navbtn" data-page="keys" onclick="nav('keys')">
       <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"/></svg>
       My Keys
@@ -612,6 +722,7 @@ function render(){
   else if(state.page==='keys') m.innerHTML=renderKeys();
   
   window.scrollTo(0,0);
+  void document.body.offsetHeight;
   if(state.page==='home') startAdSlider();
   updateWhatsappLink();
 }
@@ -625,7 +736,8 @@ function startAdSlider(){
   adSlides=document.querySelectorAll('#adSlider .ad-slide');
   if(adSlides.length===0||!adTrack) return;
   if(adIdx>=adSlides.length) adIdx=0;
-  adApply(false); requestAnimationFrame(()=>adApply(true));
+  adApply(false);
+  requestAnimationFrame(()=>{ adApply(true); if(adDrag) adDrag.w = document.querySelector('#adSlider')?.offsetWidth || 1; });
   document.querySelectorAll('.ad-dot').forEach((d,i)=>d.classList.toggle('active',i===adIdx));
   initAdSwipe(); adRestart();
 }
@@ -642,7 +754,7 @@ function initAdSwipe(){
   const up=()=>{ if(!adDrag) return; const d=adDrag; adDrag=null; slider.classList.remove('ad-dragging'); adTrack.classList.remove('no-anim'); if(d.axis==='x'&&Math.abs(d.dx)>(d.w*0.15)){ goToAdSlide(adIdx+(d.dx<0?1:-1)); } else adApply(true); adRestart(); };
   slider.addEventListener('touchstart',down,{passive:true}); slider.addEventListener('touchmove',move,{passive:false}); slider.addEventListener('touchend',up); slider.addEventListener('touchcancel',up);
   slider.addEventListener('mousedown',down);
-  if(!window.__adSwipeG){ window.__adSwipeG=true; window.addEventListener('mousemove',move); window.addEventListener('mouseup',up); }
+  if(!window.__adSwipeG){ window.__adSwipeG=true; window.addEventListener('mousemove',move); window.addEventListener('mouseup',up); window.addEventListener('resize',()=>{ const s=document.getElementById('adSlider'); if(s && adDrag) adDrag.w=s.offsetWidth||1; }); }
 }
 
 function renderHome(){
