@@ -3,7 +3,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
 <meta name="theme-color" content="#7c3aed" />
-<title>Panel Bajar - User Panel</title>
+<title>Panel Bajar - Premium Mods</title> <!-- এখানে টাইটেল ঠিক করা হয়েছে -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -35,22 +35,22 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--primary)
 ::-webkit-scrollbar{width:6px;height:6px}::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
 
 header{position:sticky;top:0;z-index:40;background:rgba(11,17,32,.9);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);width:100%}
-.header-in{max-width:600px;margin:0 auto;padding:0 16px;height:64px;display:flex;align-items:center;justify-content:space-between;gap:12px}
-.logo{display:flex;align-items:center;gap:10px;cursor:pointer;min-width:0}
+.header-in{max-width:600px;margin:0 auto;padding:0 16px;height:64px;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.logo{display:flex;align-items:center;gap:8px;cursor:pointer;min-width:0}
 .logo-badge{width:40px;height:40px;border-radius:12px;background:var(--gradient-primary);display:flex;align-items:center;justify-content:center;font-weight:900;color:#fff;font-size:16px;box-shadow:var(--shadow-neon);overflow:hidden;flex-shrink:0;font-family:'Orbitron',sans-serif}
 .logo-badge img{width:100%;height:100%;object-fit:cover}
-.logo-name{font-family:'Orbitron',sans-serif;font-weight:800;font-size:17px;letter-spacing:.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#fff;text-shadow:0 0 10px rgba(124,58,237,.5)}
-.header-right{display:flex;align-items:center;gap:8px;flex-shrink:0}
-.balance-chip{display:flex;align-items:center;gap:6px;padding:8px 14px;border-radius:24px;background:rgba(16,185,129,.1);color:var(--success);font-weight:800;font-size:13px;border:1px solid rgba(16,185,129,.2);white-space:nowrap;cursor:pointer;font-family:'Orbitron',sans-serif}
-.status-badge{display:flex;align-items:center;gap:5px;padding:6px 12px;border-radius:20px;font-size:11px;font-weight:700;border:1px solid transparent}
+.logo-name{font-family:'Orbitron',sans-serif;font-weight:800;font-size:15px;letter-spacing:.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#fff;text-shadow:0 0 10px rgba(124,58,237,.5)}
+.header-right{display:flex;align-items:center;gap:6px;flex-shrink:0}
+.balance-chip{display:flex;align-items:center;gap:4px;padding:6px 10px;border-radius:24px;background:rgba(16,185,129,.1);color:var(--success);font-weight:800;font-size:12px;border:1px solid rgba(16,185,129,.2);white-space:nowrap;cursor:pointer;font-family:'Orbitron',sans-serif}
+.status-badge{display:flex;align-items:center;gap:4px;padding:6px 10px;border-radius:20px;font-size:10px;font-weight:700;border:1px solid transparent}
 .status-badge.online{background:rgba(16,185,129,.1);color:var(--success);border-color:rgba(16,185,129,.2)}
 .status-badge.offline{background:rgba(239,68,68,.1);color:var(--danger);border-color:rgba(239,68,68,.2)}
-.status-dot{width:6px;height:6px;border-radius:50%;background:currentColor}
+.status-dot{width:5px;height:5px;border-radius:50%;background:currentColor}
 .status-badge.online .status-dot{animation:blink 1.5s infinite}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
-.btn-login{padding:0 20px;height:38px;border-radius:20px;font-weight:700;font-size:13px;background:var(--primary);color:#fff;box-shadow:var(--shadow-neon);transition:.2s}
+.btn-login{padding:0 16px;height:34px;border-radius:20px;font-weight:700;font-size:12px;background:var(--primary);color:#fff;box-shadow:var(--shadow-neon);transition:.2s}
 .btn-login:hover{transform:translateY(-1px);background:var(--primary-dark)}
-.btn-avatar{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;font-size:13px;border:2px solid var(--primary);box-shadow:var(--shadow-neon)}
+.btn-avatar{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;font-size:12px;border:2px solid var(--primary);box-shadow:var(--shadow-neon)}
 
 main{min-height:calc(100vh - 64px);padding-bottom:100px;width:100%}
 .container{max-width:600px;margin:0 auto;padding:20px 16px;width:100%}
@@ -90,7 +90,6 @@ main{min-height:calc(100vh - 64px);padding-bottom:100px;width:100%}
 .tab{padding:10px 18px;border-radius:12px;font-size:13px;font-weight:700;background:var(--card);border:1.5px solid var(--border);transition:.2s;color:var(--text-mid);flex-shrink:0}
 .tab.active{background:var(--primary);color:#fff;border-color:transparent;box-shadow:var(--shadow-neon)}
 
-/* Grid Fixed for Mobile - 2 Columns */
 .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;width:100%;max-width:100%}
 
 .prod-card{overflow:hidden;transition:.25s;border-radius:18px;border:1px solid var(--border);background:var(--card);display:flex;flex-direction:column;max-width:100%}
@@ -216,9 +215,6 @@ main{min-height:calc(100vh - 64px);padding-bottom:100px;width:100%}
 .whatsapp-fab svg{width:30px;height:30px}
 .whatsapp-fab:active{transform:scale(.95)}
 
-/* =========================================
-   PREMIUM FLOATING BOTTOM NAVIGATION BAR
-   ========================================= */
 nav.botnav{
   position:fixed; bottom:16px; left:50%; transform:translateX(-50%);
   width:calc(100% - 32px); max-width:450px;
@@ -233,7 +229,6 @@ nav.botnav{
 .navbtn.active svg{stroke:var(--primary);filter:drop-shadow(0 0 5px rgba(124,58,237,.5))}
 .navbtn svg{width:22px;height:22px;transition:.3s}
 
-/* Perfect Circle Add Fund Button */
 .navbtn-wallet-wrap{
   position:relative; display:flex; flex-direction:column; align-items:center; justify-content:center;
   height:100%; width:100%; cursor:pointer;
@@ -258,15 +253,15 @@ nav.botnav{
 
 <header><div class="header-in">
   <div class="logo" onclick="handleLogoClick()">
+    <!-- লোগো সাইজ ও নাম ঠিক করা হয়েছে -->
     <div class="logo-badge" id="logoBadge">PB</div>
-    <span class="logo-name" id="siteName">Panel Bajar</span>
+    <span class="logo-name" id="siteName">PANEL BAJAR</span>
   </div>
   <div class="header-right" id="headerRight"></div>
 </div></header>
 
 <main><div class="container" id="main"></div></main>
 
-<!-- PREMIUM BOTTOM NAV -->
 <nav class="botnav">
   <div class="botnav-in">
     <button class="navbtn" data-page="home" onclick="nav('home')">
@@ -314,7 +309,7 @@ var FIREBASE_CONFIG = {
   appId: "1:374641641780:web:c87d374edf2371dae47d61"
 };
 var TELEGRAM_CONFIG = {
-  botToken: "8842406650:AAESk-VLFq7qwOT2i14SuRAqWDIhNkQ7GNc", // আপনার টেলিগ্রাম টোকেন এখানে
+  botToken: "8842406650:AAESk-VLFq7qwOT2i14SuRAqWDIhNkQ7GNc",
   chatId: "7427334644"
 };
 </script>
@@ -384,7 +379,6 @@ function toast(m){ const t=document.createElement('div'); t.className='toast'; t
 function copyText(t){ if(navigator.clipboard){ navigator.clipboard.writeText(t).then(()=>toast('✓ কপি হয়েছে')).catch(()=>fallbackCopy(t)); } else fallbackCopy(t); }
 function fallbackCopy(t){ const ta=document.createElement('textarea'); ta.value=t; ta.style.position='fixed'; ta.style.opacity='0'; document.body.appendChild(ta); ta.select(); try{ document.execCommand('copy'); toast('✓ কপি হয়েছে'); }catch(e){} document.body.removeChild(ta); }
 
-// ============ TELEGRAM FUNCTIONS ============
 function sendTelegramNotification(order, product, keyContent){
   const token = (TELEGRAM_CONFIG.botToken && TELEGRAM_CONFIG.botToken!=='YOUR_BOT_TOKEN_HERE') ? TELEGRAM_CONFIG.botToken : state.settings.telegram_bot_token;
   const chatId = (TELEGRAM_CONFIG.chatId && TELEGRAM_CONFIG.chatId!=='YOUR_CHAT_ID_HERE') ? TELEGRAM_CONFIG.chatId : state.settings.telegram_chat_id;
