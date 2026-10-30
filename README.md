@@ -257,9 +257,7 @@ html, body {
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
 }
-body {
-  padding-bottom: calc(110px + env(safe-area-inset-bottom, 0px));
-}
+body { padding-bottom: calc(110px + env(safe-area-inset-bottom, 0px)); }
 *, *::before, *::after { min-width: 0; min-height: 0; }
 .container { padding: 16px 14px; }
 .header-in { padding: 0 12px; gap: 6px; }
@@ -295,9 +293,7 @@ body {
 .list-title { font-size: clamp(12px, 3.4vw, 14px); word-break: break-word; overflow-wrap: anywhere; }
 .list-sub { font-size: clamp(10px, 2.8vw, 11px); word-break: break-word; }
 .list-icon { width: 40px; height: 40px; font-size: 20px; }
-.modal, .welcome-modal {
-  padding: max(16px, env(safe-area-inset-top, 0px) + 8px) 16px max(16px, env(safe-area-inset-bottom, 0px) + 8px);
-}
+.modal, .welcome-modal { padding: max(16px, env(safe-area-inset-top, 0px) + 8px) 16px max(16px, env(safe-area-inset-bottom, 0px) + 8px); }
 .modal-card, .welcome-card { max-height: calc(100dvh - 32px); max-height: calc(100vh - 32px); border-radius: 20px; }
 .modal-title { font-size: clamp(17px, 4.5vw, 20px); }
 input, select, textarea { font-size: 16px; padding: 12px 14px; }
@@ -359,7 +355,149 @@ nav.botnav { bottom: calc(12px + env(safe-area-inset-bottom, 0px)); width: calc(
 @media (prefers-reduced-motion: reduce) {
   .marquee, .offer-marquee span, .status-badge.online .status-dot, .live-dot { animation: none !important; }
 }
-/* ============ END RESPONSIVE FIX ============ */
+
+/* ============================================================
+   PRODUCT SECTION — PROFESSIONAL MOBILE REDESIGN v2
+   পুরোনো সব ফিচার অক্ষত, শুধু layout উন্নত
+   ============================================================ */
+.container { padding: 14px 10px 90px 10px; width: 100%; max-width: 100%; margin: 0 auto; }
+@media (min-width: 480px) { .container { padding: 16px 14px 100px 14px; max-width: 560px; } }
+@media (min-width: 640px) { .container { padding: 20px 18px 110px 18px; max-width: 680px; } }
+@media (min-width: 768px) { .container { padding: 24px 20px 120px 20px; max-width: 760px; } }
+
+.grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; width: 100%; max-width: 100%; margin: 0 0 14px 0; }
+@media (min-width: 480px) { .grid { gap: 10px; margin-bottom: 18px; } }
+@media (min-width: 640px) { .grid { gap: 12px; margin-bottom: 20px; } }
+
+.prod-card {
+  display: flex; flex-direction: column;
+  width: 100%; min-width: 0; max-width: 100%; height: 100%;
+  border-radius: 14px; overflow: hidden;
+  background: var(--card); border: 1px solid var(--border);
+  transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+.prod-card:active { transform: scale(.985); border-color: var(--primary); }
+
+.prod-img {
+  width: 100%; aspect-ratio: 16 / 9; overflow: hidden;
+  background: #0a0f1a; position: relative;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.prod-img img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
+.prod-img > span { font-size: clamp(32px, 10vw, 48px); line-height: 1; }
+.badge-sale, .badge-antiban { font-size: 9px; padding: 3px 8px; top: 8px; }
+.badge-sale { right: 8px; }
+.badge-antiban { left: 8px; }
+
+.prod-body { padding: 10px 11px 11px 11px; display: flex; flex-direction: column; flex: 1; min-height: 0; min-width: 0; gap: 0; }
+
+.prod-name {
+  font-size: clamp(11px, 3.3vw, 13px); font-weight: 800;
+  line-height: 1.28; margin: 0 0 4px 0; color: var(--text);
+  display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2;
+  -webkit-box-orient: vertical; overflow: hidden;
+  word-break: break-word; overflow-wrap: anywhere;
+  min-height: calc(2 * 1.28em);
+}
+.prod-desc {
+  font-size: clamp(9.5px, 2.7vw, 11px); line-height: 1.35;
+  color: var(--text-mid); margin: 0 0 7px 0;
+  display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2;
+  -webkit-box-orient: vertical; overflow: hidden;
+  word-break: break-word; min-height: calc(2 * 1.35em);
+}
+.price-row { display: flex; align-items: center; gap: 5px; margin: 0 0 8px 0; flex-wrap: wrap; min-height: 20px; }
+.price { font-size: clamp(13px, 4vw, 15.5px); font-weight: 800; color: var(--success); font-family: 'Orbitron', sans-serif; letter-spacing: .3px; }
+.old-price { font-size: clamp(9px, 2.6vw, 10.5px); color: var(--muted); text-decoration: line-through; }
+
+.prod-btns { display: flex; gap: 5px; margin-top: auto; width: 100%; padding-top: 2px; }
+.btn-prod {
+  flex: 1 1 0; min-width: 0; padding: 8px 3px;
+  border-radius: 8px; font-size: clamp(9px, 2.7vw, 11px);
+  font-weight: 700; line-height: 1.1;
+  display: inline-flex; align-items: center; justify-content: center; gap: 3px;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.btn-prod:active { transform: scale(.96); }
+.btn-prod svg { width: 10px; height: 10px; flex-shrink: 0; }
+.btn-setup { background: var(--card2); color: var(--text); border: 1px solid var(--border); }
+.btn-buy { background: var(--primary); color: #fff; box-shadow: 0 2px 8px rgba(124, 58, 237, .35); }
+
+.tabs { display: flex; gap: 6px; margin: 12px 0 10px 0; padding: 0 0 3px 0; overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+.tabs::-webkit-scrollbar { display: none; }
+.tab { padding: 8px 12px; font-size: clamp(10px, 2.9vw, 12px); border-radius: 10px; flex-shrink: 0; white-space: nowrap; }
+
+.social-bar { display: flex; gap: 8px; margin: 14px 0 4px 0; width: 100%; }
+.social-bar a { flex: 1; padding: 11px 8px; border-radius: 12px; font-size: clamp(11px, 3vw, 13px); font-weight: 700; gap: 6px; }
+@media (max-width: 340px) { .social-bar { flex-direction: column; gap: 6px; } }
+
+.empty { padding: 40px 16px; margin-bottom: 14px; }
+.empty-icon { font-size: clamp(42px, 11vw, 56px); margin-bottom: 12px; }
+.empty > div[style*="font-weight:700"] { font-size: clamp(14px, 4vw, 16px); }
+.empty > div[style*="font-size:13px"] { font-size: clamp(11px, 3vw, 12.5px); }
+
+.live-feed { margin-bottom: 12px; }
+.live-feed-head { margin-bottom: 8px; }
+.live-item { padding: 9px 11px; margin-bottom: 6px; border-radius: 12px; gap: 10px; }
+.live-avatar { width: 30px; height: 30px; font-size: 10px; }
+.live-text { font-size: clamp(10.5px, 2.9vw, 12px); line-height: 1.35; }
+.live-time { font-size: 9.5px; margin-top: 1px; }
+
+.ad-slider { margin-bottom: 12px; aspect-ratio: 16 / 8; max-height: 260px; border-radius: 14px; }
+@media (max-width: 380px) { .ad-slider { aspect-ratio: 16 / 9; max-height: 200px; } }
+
+.notif { margin-bottom: 10px; padding: 9px 13px; border-radius: 10px; }
+.offer-bar { margin-bottom: 10px; border-radius: 10px; }
+.offer-inner { padding: 9px 13px; }
+
+body { padding-bottom: calc(90px + env(safe-area-inset-bottom, 0px)); }
+main { padding-bottom: calc(96px + env(safe-area-inset-bottom, 0px)); min-height: auto; }
+nav.botnav { bottom: calc(10px + env(safe-area-inset-bottom, 0px)); width: calc(100% - 20px); max-width: 440px; }
+.botnav-in { height: 62px; padding: 0 4px; }
+.navbtn { font-size: clamp(9px, 2.4vw, 10px); gap: 2px; }
+.navbtn svg { width: 19px; height: 19px; }
+.navbtn-wallet-circle { width: 48px; height: 48px; top: -20px; border-width: 2.5px; }
+.navbtn-wallet-circle svg { width: 22px; height: 22px; }
+.navbtn-wallet-label { margin-top: 30px; font-size: 8.5px; }
+
+.whatsapp-fab { bottom: calc(88px + env(safe-area-inset-bottom, 0px)); right: 12px; width: 48px; height: 48px; }
+.whatsapp-fab svg { width: 24px; height: 24px; }
+
+html, body { overflow-x: hidden; max-width: 100vw; width: 100%; }
+* { box-sizing: border-box; }
+
+@media (max-width: 320px) {
+  .container { padding-left: 8px; padding-right: 8px; }
+  .grid { gap: 6px; }
+  .prod-body { padding: 8px 9px 10px 9px; }
+  .prod-name { font-size: 11px; }
+  .prod-desc { font-size: 9px; -webkit-line-clamp: 1; line-clamp: 1; min-height: auto; }
+  .price { font-size: 12.5px; }
+  .btn-prod { font-size: 8.5px; padding: 7px 2px; }
+  .prod-btns { gap: 4px; }
+}
+@media (min-width: 390px) and (max-width: 480px) {
+  .grid { gap: 9px; }
+  .prod-body { padding: 11px 12px 12px 12px; }
+  .prod-name { font-size: 12.5px; }
+  .prod-desc { font-size: 10.5px; }
+  .price { font-size: 15px; }
+  .btn-prod { font-size: 10.5px; padding: 9px 4px; }
+}
+@media (min-width: 640px) {
+  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .prod-name { -webkit-line-clamp: 2; line-clamp: 2; font-size: 13.5px; }
+  .prod-desc { font-size: 11.5px; }
+  .btn-prod { font-size: 11.5px; padding: 10px 6px; }
+}
+@media (min-width: 900px) {
+  .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+}
+/* ============================================================
+   END PRODUCT SECTION REDESIGN v2
+   ============================================================ */
 </style>
 </head>
 <body>
