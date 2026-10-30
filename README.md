@@ -35,7 +35,7 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--primary)
 ::-webkit-scrollbar{width:6px;height:6px}::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
 
 header{position:sticky;top:0;z-index:40;background:rgba(11,17,32,.9);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);width:100%}
-.header-in{max-width:1200px;margin:0 auto;padding:0 16px;height:64px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.header-in{max-width:600px;margin:0 auto;padding:0 16px;height:64px;display:flex;align-items:center;justify-content:space-between;gap:12px}
 .logo{display:flex;align-items:center;gap:10px;cursor:pointer;min-width:0}
 .logo-badge{width:40px;height:40px;border-radius:12px;background:var(--gradient-primary);display:flex;align-items:center;justify-content:center;font-weight:900;color:#fff;font-size:16px;box-shadow:var(--shadow-neon);overflow:hidden;flex-shrink:0;font-family:'Orbitron',sans-serif}
 .logo-badge img{width:100%;height:100%;object-fit:cover}
@@ -53,7 +53,7 @@ header{position:sticky;top:0;z-index:40;background:rgba(11,17,32,.9);backdrop-fi
 .btn-avatar{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;font-size:13px;border:2px solid var(--primary);box-shadow:var(--shadow-neon)}
 
 main{min-height:calc(100vh - 64px);padding-bottom:100px;width:100%}
-.container{max-width:1200px;margin:0 auto;padding:20px 16px;width:100%}
+.container{max-width:600px;margin:0 auto;padding:20px 16px;width:100%}
 .card{background:var(--gradient-card);border:1px solid var(--border);border-radius:18px;box-shadow:var(--shadow-sm);max-width:100%}
 
 .btn-primary{background:var(--gradient-primary);color:#fff;font-weight:700;transition:.2s;box-shadow:0 4px 12px rgba(124,58,237,.25);border-radius:12px}
@@ -90,9 +90,8 @@ main{min-height:calc(100vh - 64px);padding-bottom:100px;width:100%}
 .tab{padding:10px 18px;border-radius:12px;font-size:13px;font-weight:700;background:var(--card);border:1.5px solid var(--border);transition:.2s;color:var(--text-mid);flex-shrink:0}
 .tab.active{background:var(--primary);color:#fff;border-color:transparent;box-shadow:var(--shadow-neon)}
 
+/* Grid Fixed for Mobile - 2 Columns */
 .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;width:100%;max-width:100%}
-@media(min-width:640px){.grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}}
-@media(min-width:1024px){.grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}}
 
 .prod-card{overflow:hidden;transition:.25s;border-radius:18px;border:1px solid var(--border);background:var(--card);display:flex;flex-direction:column;max-width:100%}
 .prod-card:hover{transform:translateY(-4px);border-color:var(--primary);box-shadow:0 16px 32px rgba(124,58,237,.15)}
@@ -127,7 +126,6 @@ main{min-height:calc(100vh - 64px);padding-bottom:100px;width:100%}
 .badge-red{background:rgba(239,68,68,.12);color:var(--danger);border:1px solid rgba(239,68,68,.2)}
 
 .stat-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-bottom:20px}
-@media(min-width:768px){.stat-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
 .stat{padding:20px;border-radius:16px;background:var(--card);border:1px solid var(--border);box-shadow:var(--shadow-xs);position:relative;overflow:hidden}
 .stat::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:var(--primary)}
 .stat.green::before{background:var(--success)}
@@ -254,22 +252,6 @@ nav.botnav{
 .navbtn-wallet-label{
   margin-top:38px; font-size:10px; color:var(--success); font-weight:700; letter-spacing:.5px;
 }
-
-@media(max-width:400px){
-  .logo-name{font-size:14px}
-  .balance-chip{padding:6px 10px;font-size:11px}
-  .hero-balance{font-size:30px}
-  .grid{gap:10px}
-  .prod-img{aspect-ratio:4/3}
-  .prod-body{padding:10px}
-  .prod-name{font-size:12px}
-  .prod-desc{font-size:10px;min-height:26px}
-  .price{font-size:15px}
-  .btn-prod{font-size:10px;padding:8px 2px}
-  .btn-prod svg{width:10px;height:10px}
-  .navbtn{font-size:9px}
-  .navbtn-wallet-label{font-size:9px;margin-top:36px}
-}
 </style>
 </head>
 <body>
@@ -332,7 +314,7 @@ var FIREBASE_CONFIG = {
   appId: "1:374641641780:web:c87d374edf2371dae47d61"
 };
 var TELEGRAM_CONFIG = {
-  botToken: "8886507238:AAEW429taQKomorvb1mD2PhnZD3exlOPmyc", // আপনার টেলিগ্রাম টোকেন এখানে
+  botToken: "8842406650:AAESk-VLFq7qwOT2i14SuRAqWDIhNkQ7GNc", // আপনার টেলিগ্রাম টোকেন এখানে
   chatId: "7427334644"
 };
 </script>
